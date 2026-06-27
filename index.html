@@ -189,10 +189,12 @@
     .portfolio-item:hover{background:var(--bg-card-hover);border-color:transparent;transform:translateY(-4px)}
     .portfolio-item .inner{display:grid;grid-template-columns:1fr 1fr;gap:0}
     .portfolio-item .thumb{
-      min-height:260px;background:linear-gradient(135deg,rgba(0,212,170,0.05),rgba(108,92,231,0.05));
+      min-height:260px;background:var(--bg-card);
       display:flex;align-items:center;justify-content:center;
-      color:var(--text-dim);font-size:3rem;border-right:1px solid var(--border)
+      color:var(--text-dim);font-size:3rem;border-right:1px solid var(--border);
+      overflow:hidden
     }
+    .portfolio-item .thumb img{width:100%;height:100%;object-fit:cover}
     .portfolio-item .body{padding:28px}
     .portfolio-item .body h3{font-size:1.15rem;margin-bottom:4px}
     .portfolio-item .body .role{font-size:0.8rem;color:var(--accent);margin-bottom:12px}
@@ -355,7 +357,7 @@
           </h1>
           <div class="hero-badges">
             <span class="badge"><i class="fas fa-check-circle"></i> Company Profile</span>
-            <span class="badge"><i class="fas fa-check-circle"></i> Landing Page</span>
+            <span class="badge"><i class="fas fa-check-circle"></i> Resto POS</span>
             <span class="badge"><i class="fas fa-check-circle"></i> Dashboard & POS</span>
             <span class="badge"><i class="fas fa-check-circle"></i> Aman & SEO Friendly</span>
           </div>
@@ -467,8 +469,8 @@
         </div>
         <div class="service-card">
           <div class="icon"><i class="fas fa-building"></i></div>
-          <h3>Landing Page & Promosi</h3>
-          <p>Landing page high-conversion untuk promosi produk atau jasa — fast loading, tombol WA, dan siap pasang analytics.</p>
+          <h3>Sistem POS & Kasir</h3>
+          <p>Sistem POS dan kasir digital untuk kafe, restoran, dan retail — lengkap dengan manajemen stok dan laporan penjualan.</p>
         </div>
         <div class="service-card">
           <div class="icon"><i class="fas fa-shield"></i></div>
@@ -489,7 +491,7 @@
 
         <div class="portfolio-item">
           <div class="inner">
-            <div class="thumb"><i class="fas fa-mug-saucer"></i></div>
+            <div class="thumb"><img src="Restauran_POS_Sistem.png" alt="Restaurant POS System" style="width:100%;height:100%;object-fit:cover" /></div>
             <div class="body">
               <h3>Restaurant POS System</h3>
               <div class="role">Full-Stack Developer</div>
@@ -515,7 +517,7 @@
 
         <div class="portfolio-item">
           <div class="inner">
-            <div class="thumb"><i class="fas fa-chart-line"></i></div>
+            <div class="thumb"><img src="Business_Page.png" alt="Business Dashboard" style="width:100%;height:100%;object-fit:cover" /></div>
             <div class="body">
               <h3>Business Dashboard</h3>
               <div class="role">Full-Stack Developer</div>
@@ -541,7 +543,7 @@
 
         <div class="portfolio-item">
           <div class="inner">
-            <div class="thumb"><i class="fas fa-graduation-cap"></i></div>
+            <div class="thumb"><img src="education_sistem.png" alt="Education Management System" style="width:100%;height:100%;object-fit:cover" /></div>
             <div class="body">
               <h3>Education Management System</h3>
               <div class="role">Full-Stack Developer</div>
@@ -567,7 +569,7 @@
 
         <div class="portfolio-item">
           <div class="inner">
-            <div class="thumb"><i class="fas fa-plane"></i></div>
+            <div class="thumb"><img src="Travel_sistem.png" alt="Travel Management System" style="width:100%;height:100%;object-fit:cover" /></div>
             <div class="body">
               <h3>Travel Management System</h3>
               <div class="role">Full-Stack Developer</div>
@@ -593,7 +595,7 @@
 
         <div class="portfolio-item">
           <div class="inner">
-            <div class="thumb"><i class="fas fa-globe"></i></div>
+            <div class="thumb"><img src="company_profile_design_1779676079856.png" alt="Website Company Profile" style="width:100%;height:100%;object-fit:cover" /></div>
             <div class="body">
               <h3>Website Company Profile</h3>
               <div class="role">Full-Stack Developer</div>
@@ -619,21 +621,21 @@
 
         <div class="portfolio-item">
           <div class="inner">
-            <div class="thumb"><i class="fas fa-bullhorn"></i></div>
+            <div class="thumb"><img src="Sistem_POS_Kafe.png" alt="Sistem POS Kafe" style="width:100%;height:100%;object-fit:cover" /></div>
             <div class="body">
-              <h3>Landing Page Produk</h3>
+              <h3>Sistem POS Kafe</h3>
               <div class="role">Full-Stack Developer</div>
-              <p>Landing page profesional untuk promosi produk atau jasa — dengan desain konversi tinggi, fast loading, dan terintegrasi WhatsApp.</p>
+              <p>Sistem POS dan kasir digital untuk kafe dan restoran — kelola pesanan, stok, dan laporan penjualan dalam satu dashboard.</p>
               <h4>Fitur</h4>
               <ul>
-                <li><i class="fas fa-circle"></i> Desain High-Conversion</li>
-                <li><i class="fas fa-circle"></i> Fast Loading (Core Web Vitals)</li>
-                <li><i class="fas fa-circle"></i> Tombol WA & Call to Action</li>
-                <li><i class="fas fa-circle"></i> Analytics Siap Pasang</li>
-                <li><i class="fas fa-circle"></i> Mobile First</li>
+                <li><i class="fas fa-circle"></i> POS / Kasir Digital</li>
+                <li><i class="fas fa-circle"></i> Manajemen Menu & Stok</li>
+                <li><i class="fas fa-circle"></i> Laporan Penjualan</li>
+                <li><i class="fas fa-circle"></i> Multi User (Owner & Staff)</li>
+                <li><i class="fas fa-circle"></i> Riwayat Pesanan</li>
               </ul>
               <div class="tags">
-                <span>Next.js</span><span>Tailwind CSS</span><span>TypeScript</span>
+                <span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span>
               </div>
               <div class="project-links">
                 <a href="#" class="pl-demo" onclick="alert('Live demo coming soon');return false"><i class="fas fa-eye"></i> Live Demo</a>
