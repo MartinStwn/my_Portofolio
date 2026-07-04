@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Martinus Setiawan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .contact-links{list-style:none;max-width:360px;margin:0 auto}
+    .contact-links li{display:flex;align-items:center;gap:16px;padding:16px 20px;margin-bottom:8px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);transition:var(--transition)}
+    .contact-links li i{width:20px;text-align:center;color:var(--accent);font-size:1.1rem}
+    .contact-links li a{flex:1;color:var(--text);text-decoration:none;font-weight:500;font-size:0.9rem}
+    .contact-links li .label{font-size:0.7rem;color:var(--text-dim);font-weight:400;display:block}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="logo"><a href="../index.html">M<span>.</span>Setiawan</a></div>
+      <ul id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      <div class="label"><i class="fas fa-envelope"></i> Get in Touch</div>
+      <h1>Let's Talk Security</h1>
+      <p>I'm always open to discussing cybersecurity opportunities, research collaboration, or roles where I can contribute to building and protecting secure systems.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container" style="text-align:center">
+      <p style="color:var(--text-dim);margin-bottom:24px;font-size:0.9rem">Prefer email or LinkedIn for career-related conversations.</p>
+      <ul class="contact-links">
+        <li>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:martin.cyber092@gmail.com">martin.cyber092@gmail.com <span class="label">Email</span></a>
+        </li>
+        <li>
+          <i class="fab fa-linkedin-in"></i>
+          <a href="https://www.linkedin.com/in/martinus-setiawan-b72621328/" target="_blank">Martinus Setiawan <span class="label">LinkedIn</span></a>
+        </li>
+        <li>
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/MartinStwn" target="_blank">MartinStwn <span class="label">GitHub</span></a>
+        </li>
+        <li>
+          <i class="fab fa-instagram"></i>
+          <a href="https://www.instagram.com/mars_yakubets/" target="_blank">@mars_yakubets <span class="label">Instagram</span></a>
+        </li>
+        <li>
+          <i class="fas fa-briefcase"></i>
+          <a href="https://fastwork.id/user/martin_dev?source=web_marketplace_profile-menu_profile" target="_blank">martin_dev <span class="label">Fastwork</span></a>
+        </li>
+        <li>
+          <i class="fas fa-briefcase"></i>
+          <a href="https://projects.co.id/public/browse_users/view/d95f6c/martinsetiawan" target="_blank">martinsetiawan <span class="label">Projects.co.id</span></a>
+        </li>
+      </ul>
+      <div style="margin-top:32px;padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);max-width:420px;margin-left:auto;margin-right:auto">
+        <i class="fas fa-shield" style="font-size:2rem;color:var(--accent);display:block;margin-bottom:8px"></i>
+        <h3 style="font-size:1rem;margin-bottom:4px">Open to Opportunities</h3>
+        <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.7">Looking for a cybersecurity role where I can apply my security knowledge and development skills to protect modern systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Martinus Setiawan. Built with curiosity.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

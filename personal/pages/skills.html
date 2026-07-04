@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills — Martinus Setiawan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .skill-section{margin-bottom:36px}
+    .skill-section:last-child{margin-bottom:0}
+    .skill-section h3{font-size:0.95rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+    .skill-section h3 i{color:var(--accent)}
+    .skill-section .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .skill-section .tags span{padding:6px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);font-size:0.82rem;color:var(--text);transition:var(--transition)}
+    .skill-section .tags span:hover{border-color:var(--accent);background:rgba(108,92,231,0.05)}
+    .skill-sub-label{font-size:0.72rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:600}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="logo"><a href="../index.html">M<span>.</span>Setiawan</a></div>
+      <ul id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html" class="active">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      <div class="label"><i class="fas fa-shield"></i> Expertise</div>
+      <h1>Skills & Tools</h1>
+      <p>Practical skills acquired through internship and lab experience.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+
+      <div class="skill-section">
+        <h3><i class="fas fa-briefcase"></i> Professional Experience (Internship)</h3>
+        <div class="skill-sub-label">Endpoint Security</div>
+        <div class="tags" style="margin-bottom:12px">
+          <span>Kaspersky Endpoint Security</span>
+        </div>
+        <div class="skill-sub-label">Linux Administration</div>
+        <div class="tags" style="margin-bottom:12px">
+          <span>Fedora</span><span>Ubuntu Server</span>
+        </div>
+        <div class="skill-sub-label">Network & Infrastructure</div>
+        <div class="tags" style="margin-bottom:12px">
+          <span>LAN</span><span>VLAN</span><span>Juniper</span>
+        </div>
+        <div class="skill-sub-label">System Administration</div>
+        <div class="tags" style="margin-bottom:12px">
+          <span>Postfix</span><span>Dovecot</span><span>Roundcube</span>
+        </div>
+        <div class="skill-sub-label">Workflow Automation</div>
+        <div class="tags" style="margin-bottom:12px">
+          <span>n8n</span>
+        </div>
+      </div>
+
+      <div class="skill-section">
+        <h3><i class="fas fa-flask"></i> Security Lab & Tools (Practical Skills)</h3>
+        <div class="skill-sub-label">Web Security</div>
+        <div class="tags" style="margin-bottom:12px">
+          <span>Burp Suite</span><span>OWASP ZAP</span>
+        </div>
+        <div class="skill-sub-label">Scanning & Enumeration</div>
+        <div class="tags" style="margin-bottom:12px">
+          <span>Nmap</span>
+        </div>
+        <div class="skill-sub-label">Database Assessment</div>
+        <div class="tags" style="margin-bottom:12px">
+          <span>SQLmap</span>
+        </div>
+        <div class="skill-sub-label">Digital Forensics</div>
+        <div class="tags" style="margin-bottom:12px">
+          <span>Autopsy</span>
+        </div>
+        <div class="skill-sub-label">Information Gathering</div>
+        <div class="tags" style="margin-bottom:12px">
+          <span>OSINT Framework</span>
+        </div>
+      </div>
+
+      <div class="skill-section">
+        <h3><i class="fas fa-users"></i> Soft Skills</h3>
+        <div class="tags">
+          <span>Time Management</span>
+          <span>Teamwork</span>
+          <span>Adaptability</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <span class="section-label">Credentials</span>
+      <h2 class="section-title">Certifications & Highlights</h2>
+      <p class="section-sub">Qualified with foundational security knowledge and real-world experience.</p>
+      <div class="cert-list" style="margin-bottom:16px">
+        <div class="cert-item">
+          <i class="fas fa-certificate" style="color:#f0c040"></i>
+          <div><div class="cert-name">Network Security Fundamentals</div><div class="cert-by">Academic Coursework</div></div>
+        </div>
+        <div class="cert-item">
+          <i class="fas fa-certificate" style="color:#f0c040"></i>
+          <div><div class="cert-name">Ethical Hacking Essentials</div><div class="cert-by">Academic Coursework</div></div>
+        </div>
+        <div class="cert-item">
+          <i class="fas fa-briefcase"></i>
+          <div><div class="cert-name">IT Security & NOC Internship</div><div class="cert-by">PT Artha Telekomindo</div></div>
+        </div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;display:flex;align-items:center;gap:14px">
+        <i class="fas fa-shield" style="color:var(--accent);font-size:1.3rem"></i>
+        <div>
+          <div style="font-size:0.85rem;font-weight:600">Zero Security Incidents</div>
+          <div style="font-size:0.78rem;color:var(--text-dim)">Perfect security record across all projects and internship</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Martinus Setiawan. Built with curiosity.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

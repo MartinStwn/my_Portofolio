@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Details — Martinus Setiawan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',sans-serif;background:#0F0F10;color:#fff;line-height:1.7;-webkit-font-smoothing:antialiased}
+    ::selection{background:rgba(255,107,53,.3);color:#fff}
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-track{background:#0F0F10}
+    ::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:3px}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%}
+
+    nav{position:fixed;top:0;left:0;right:0;height:70px;display:flex;align-items:center;background:rgba(15,15,15,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.05);z-index:1000}
+    nav .container{display:flex;align-items:center;justify-content:space-between;width:100%}
+    .logo{font-size:1.2rem;font-weight:700;letter-spacing:-.5px}
+    .logo span{color:#FF6B35}
+    .nav-links{display:flex;align-items:center;gap:40px;list-style:none}
+    .nav-links a{font-size:.85rem;font-weight:500;color:#A0A0A0;transition:all .3s;letter-spacing:.3px}
+    .nav-links a:hover{color:#fff}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+
+    .page-hero{min-height:60vh;display:flex;align-items:center;padding-top:70px;position:relative}
+    .page-hero .back-link{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:#A0A0A0;margin-bottom:24px;transition:color .3s}
+    .page-hero .back-link:hover{color:#FF6B35}
+    .hero-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .hero-shot{width:100%;aspect-ratio:16/10;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#111}
+    .hero-shot .mu{width:100%;height:100%}
+    .hero-info .label{font-size:.7rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#FF6B35;margin-bottom:8px;display:block}
+    .hero-info h1{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-1px;margin-bottom:12px;line-height:1.2}
+    .hero-info .short-desc{font-size:.95rem;color:#A0A0A0;line-height:1.7;margin-bottom:16px}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:20px}
+    .hero-meta span{font-size:.78rem;color:#888;display:flex;align-items:center;gap:6px}
+    .hero-meta .status{color:#4ade80;font-weight:600}
+    .hero-meta .year{color:#2D8CFF;font-weight:600}
+    .hero-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+    .hero-badges span{font-size:.68rem;padding:4px 12px;border-radius:100px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);color:#888;letter-spacing:.2px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:999px;font-size:.82rem;font-weight:600;font-family:'Poppins',sans-serif;border:none;cursor:pointer;transition:all .3s ease;letter-spacing:.3px}
+    .btn-primary{background:#fff;color:#0F0F10}
+    .btn-primary:hover{transform:scale(1.03);box-shadow:0 8px 30px rgba(255,255,255,.12)}
+    .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.15)}
+    .btn-outline:hover{background:#fff;color:#0F0F10;transform:scale(1.03);border-color:#fff}
+    .btn-ghost{background:transparent;color:#A0A0A0;border:1.5px solid rgba(255,255,255,.06)}
+    .btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.15)}
+
+    section{padding:80px 0}
+    .section-label{font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;display:block}
+    .section-label.orange{color:#FF6B35}
+    .section-label.blue{color:#2D8CFF}
+    .section-title{font-size:clamp(1.3rem,3vw,2rem);font-weight:700;margin-bottom:16px;letter-spacing:-.5px}
+    .section-sub{color:#A0A0A0;font-size:.9rem;max-width:700px;line-height:1.8}
+    .detail-grid{max-width:820px;margin:0 auto}
+
+    /* Overview / Problem / Solution */
+    .text-block p{font-size:.9rem;color:#A0A0A0;line-height:1.9;margin-bottom:16px}
+    .text-block ul{list-style:none;margin-top:12px}
+    .text-block ul li{font-size:.85rem;color:#A0A0A0;padding:6px 0;display:flex;align-items:flex-start;gap:12px;line-height:1.7}
+    .text-block ul li i{color:#FF6B35;font-size:.45rem;margin-top:9px;flex-shrink:0}
+
+    /* Features Grid */
+    .feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:24px}
+    .feat-grid span{display:flex;align-items:center;gap:10px;padding:12px 16px;background:#1A1A1A;border:1px solid rgba(255,255,255,.06);border-radius:12px;font-size:.82rem;color:#D0D0D0;transition:all .3s}
+    .feat-grid span i{color:#4ade80;font-size:.7rem}
+
+    /* Tech Stack */
+    .ts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:24px}
+    .ts-card{padding:18px 20px;background:#1A1A1A;border:1px solid rgba(255,255,255,.06);border-radius:14px}
+    .ts-card h4{font-size:.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
+    .ts-card .ts-tags{display:flex;gap:6px;flex-wrap:wrap}
+    .ts-card .ts-tags span{font-size:.75rem;padding:4px 12px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);color:#B0B0B0}
+
+    /* Architecture */
+    .arch-flow{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:28px}
+    .arch-node{padding:14px 24px;background:#1A1A1A;border:1px solid rgba(255,255,255,.06);border-radius:12px;font-size:.82rem;color:#D0D0D0;text-align:center;min-width:180px}
+    .arch-arrow{color:rgba(255,255,255,.12);font-size:1rem;padding:6px 0}
+
+    /* Gallery */
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+    .gallery-grid .gal-item{aspect-ratio:16/10;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:all .3s;background:#111}
+    .gallery-grid .gal-item:hover{transform:translateY(-4px);border-color:rgba(255,107,53,.2)}
+    .gallery-grid .gal-item .mu{width:100%;height:100%}
+
+    /* Lightbox */
+    .lightbox{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.9);z-index:9999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(10px)}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:90vw;max-height:85vh;border-radius:12px}
+    .lightbox .lb-close{position:absolute;top:24px;right:32px;font-size:1.5rem;color:#fff;cursor:pointer;opacity:.6;transition:opacity .3s;background:none;border:none}
+    .lightbox .lb-close:hover{opacity:1}
+    .lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-size:2rem;color:#fff;cursor:pointer;opacity:.4;transition:opacity .3s;background:none;border:none;padding:20px}
+    .lightbox .lb-nav:hover{opacity:1}
+    .lightbox .lb-prev{left:16px}
+    .lightbox .lb-next{right:16px}
+
+    /* Challenges / Lessons */
+    .list-card{padding:18px 22px;background:#1A1A1A;border:1px solid rgba(255,255,255,.06);border-radius:12px;margin-top:12px}
+    .list-card p{font-size:.85rem;color:#A0A0A0;line-height:1.7}
+    .list-card:first-child{margin-top:0}
+
+    /* Bottom CTA */
+    .bottom-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.06)}
+
+    footer{padding:32px 0;border-top:1px solid rgba(255,255,255,.05)}
+    footer p{text-align:center;font-size:.8rem;color:#666;letter-spacing:.3px}
+
+    .loading{display:flex;align-items:center;justify-content:center;min-height:60vh;color:#666;font-size:.9rem}
+
+    @media(max-width:768px){
+      .hamburger{display:flex}
+      .nav-links{position:fixed;top:70px;left:0;right:0;background:rgba(15,15,15,.95);backdrop-filter:blur(10px);flex-direction:column;padding:24px;gap:20px;transform:translateY(-120%);opacity:0;transition:all .4s ease;pointer-events:none;border-bottom:1px solid rgba(255,255,255,.05)}
+      .nav-links.open{transform:translateY(0);opacity:1;pointer-events:auto}
+      .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+      .hamburger.active span:nth-child(2){opacity:0}
+      .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+      .hero-layout{grid-template-columns:1fr}
+      .hero-shot{order:-1}
+      .page-hero{min-height:auto;padding:100px 0 60px}
+      .feat-grid{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:1fr}
+      section{padding:48px 0}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="logo">M<span>.</span>Setiawan</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div id="app">
+    <div class="loading"><i class="fas fa-spinner fa-spin" style="margin-right:10px"></i> Loading project...</div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Martinus Setiawan. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose"><i class="fas fa-xmark"></i></button>
+    <button class="lb-nav lb-prev" id="lbPrev"><i class="fas fa-chevron-left"></i></button>
+    <img id="lbImg" src="" alt="Gallery preview" />
+    <button class="lb-nav lb-next" id="lbNext"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="data/projects.js"></script>
+  <script>
+    AOS.init({duration:600,easing:'ease-out',once:true});
+
+    const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+    hamburger.addEventListener('click',function(){this.classList.toggle('active');navLinks.classList.toggle('open')});
+
+    const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbClose=document.getElementById('lbClose'),lbPrev=document.getElementById('lbPrev'),lbNext=document.getElementById('lbNext');
+    lbClose.onclick=()=>lb.classList.remove('open');
+    lb.onclick=e=>{if(e.target===lb)lb.classList.remove('open')};
+
+    const slug=new URLSearchParams(location.search).get('slug');
+    const project=projects.find(p=>p.slug===slug);
+
+    if(!project){
+      document.getElementById('app').innerHTML=`
+        <div class="page-hero"><div class="container" style="text-align:center;width:100%">
+          <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+          <h1 style="margin-top:40px;font-size:1.8rem">Project Not Found</h1>
+          <p style="color:#A0A0A0;margin-top:8px">The project you're looking for doesn't exist.</p>
+        </div></div>`;
+    } else {
+      renderProject(project);
+    }
+
+    function renderProject(p){
+      const mockups={
+        'endpoint-security':[
+          `<div class="mu" style="background:#0b1219;display:flex;flex-direction:column;font-family:'Inter',sans-serif">`,
+          `<div style="display:flex;align-items:center;padding:10px 16px;background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.04)">`,
+          `<div style="width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#FF6B35,#FF3E8A);margin-right:10px;display:flex;align-items:center;justify-content:center;font-size:6px;color:#fff;font-weight:700">S</div>`,
+          `<div style="display:flex;gap:14px;flex:1"><span style="font-size:.5rem;color:rgba(255,255,255,.6);font-weight:500;letter-spacing:.3px;padding-bottom:2px;border-bottom:1.5px solid #FF6B35">Overview</span><span style="font-size:.5rem;color:rgba(255,255,255,.3)">Threats</span><span style="font-size:.5rem;color:rgba(255,255,255,.3)">Endpoints</span></div>`,
+          `<div style="width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#FF3E8A);display:flex;align-items:center;justify-content:center;font-size:6px;color:#fff;font-weight:700">M</div></div>`,
+          `<div style="flex:1;display:flex;padding:12px 16px;gap:12px"><div style="flex:1;display:flex;flex-direction:column;gap:8px">`,
+          `<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">`,
+          `<div style="background:rgba(255,255,255,.03);border-radius:6px;padding:8px 10px;border:1px solid rgba(255,255,255,.04)"><div style="font-size:.42rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.5px">Threats Blocked</div><div style="font-size:.9rem;font-weight:700;color:#4ade80;margin-top:1px">0</div></div>`,
+          `<div style="background:rgba(255,255,255,.03);border-radius:6px;padding:8px 10px;border:1px solid rgba(255,255,255,.04)"><div style="font-size:.42rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.5px">Active Scans</div><div style="font-size:.9rem;font-weight:700;color:#FF6B35;margin-top:1px">3</div></div>`,
+          `<div style="background:rgba(255,255,255,.03);border-radius:6px;padding:8px 10px;border:1px solid rgba(255,255,255,.04)"><div style="font-size:.42rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.5px">Protected</div><div style="font-size:.9rem;font-weight:700;color:#fff;margin-top:1px">24</div></div>`,
+          `<div style="background:rgba(255,255,255,.03);border-radius:6px;padding:8px 10px;border:1px solid rgba(255,255,255,.04)"><div style="font-size:.42rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.5px">Uptime</div><div style="font-size:.9rem;font-weight:700;color:#4ade80;margin-top:1px">99.9%</div></div></div>`,
+          `<div style="flex:1;background:rgba(255,255,255,.02);border-radius:6px;border:1px solid rgba(255,255,255,.04);padding:8px 10px;display:flex;flex-direction:column;gap:6px">`,
+          `<div style="font-size:.42rem;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.5px;font-weight:600">Threat Activity (7d)</div>`,
+          `<div style="display:flex;align-items:flex-end;gap:3px;flex:1">`,
+          `<div style="flex:1;height:70%;background:linear-gradient(to top,rgba(255,107,53,.3),rgba(255,107,53,.1));border-radius:2px;border-bottom:1.5px solid rgba(255,107,53,.5)"></div>`,
+          `<div style="flex:1;height:45%;background:linear-gradient(to top,rgba(255,107,53,.2),rgba(255,107,53,.05));border-radius:2px;border-bottom:1.5px solid rgba(255,107,53,.3)"></div>`,
+          `<div style="flex:1;height:90%;background:linear-gradient(to top,rgba(255,107,53,.35),rgba(255,107,53,.15));border-radius:2px;border-bottom:1.5px solid #FF6B35"></div>`,
+          `<div style="flex:1;height:55%;background:linear-gradient(to top,rgba(255,107,53,.2),rgba(255,107,53,.05));border-radius:2px;border-bottom:1.5px solid rgba(255,107,53,.4)"></div>`,
+          `<div style="flex:1;height:30%;background:linear-gradient(to top,rgba(255,107,53,.15),rgba(255,107,53,.03));border-radius:2px;border-bottom:1.5px solid rgba(255,107,53,.2)"></div>`,
+          `<div style="flex:1;height:65%;background:linear-gradient(to top,rgba(255,107,53,.25),rgba(255,107,53,.1));border-radius:2px;border-bottom:1.5px solid rgba(255,107,53,.4)"></div>`,
+          `<div style="flex:1;height:20%;background:linear-gradient(to top,rgba(255,107,53,.1),rgba(255,107,53,.03));border-radius:2px;border-bottom:1.5px solid rgba(255,107,53,.15)"></div></div></div></div></div></div>`
+        ].join(''),
+        'mail-server-deployment':[
+          `<div class="mu" style="background:#0b111e;display:flex;flex-direction:column;font-family:'Inter',sans-serif">`,
+          `<div style="display:flex;align-items:center;padding:10px 16px;background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.04);gap:10px">`,
+          `<div style="width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#2D8CFF,#1a5bbf);display:flex;align-items:center;justify-content:center;font-size:6px;color:#fff;font-weight:700">M</div>`,
+          `<div style="flex:1;display:flex;gap:6px;background:rgba(255,255,255,.04);border-radius:4px;padding:3px 8px;border:1px solid rgba(255,255,255,.04)"><span style="font-size:.42rem;color:rgba(255,255,255,.25)">🔍</span><span style="font-size:.4rem;color:rgba(255,255,255,.2)">Search queues, logs...</span></div>`,
+          `<div style="display:flex;gap:4px"><div style="width:4px;height:4px;border-radius:50%;background:#4ade80"></div><div style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.15)"></div></div></div>`,
+          `<div style="flex:1;display:flex"><div style="width:44px;background:rgba(255,255,255,.015);border-right:1px solid rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;padding:8px 0;gap:8px">`,
+          `<div style="width:26px;height:26px;border-radius:5px;background:rgba(45,140,255,.08);border:1px solid rgba(45,140,255,.12);display:flex;align-items:center;justify-content:center"><div style="width:8px;height:8px;border-radius:50%;background:#2D8CFF;opacity:.6"></div></div>`,
+          `<div style="width:26px;height:26px;border-radius:5px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center"><div style="width:8px;height:8px;border-radius:2px;border:1px solid rgba(255,255,255,.15)"></div></div>`,
+          `<div style="width:26px;height:26px;border-radius:5px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center"><div style="width:8px;height:2px;background:rgba(255,255,255,.15);border-radius:1px"></div></div>`,
+          `<div style="width:26px;height:26px;border-radius:5px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center"><div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.12)"></div></div></div>`,
+          `<div style="flex:1;padding:10px 14px;display:flex;flex-direction:column;gap:6px">`,
+          `<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 10px;background:rgba(255,255,255,.03);border-radius:5px;border:1px solid rgba(255,255,255,.04)"><div><div style="font-size:.45rem;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.5px">SMTP Service</div><div style="font-size:.52rem;color:rgba(255,255,255,.5);margin-top:1px">mail.example.com:25</div></div><div style="display:flex;align-items:center;gap:4px"><div style="width:5px;height:5px;border-radius:50%;background:#4ade80"></div><span style="font-size:.45rem;color:#4ade80;font-weight:600">Live</span></div></div>`,
+          `<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 10px;background:rgba(255,255,255,.03);border-radius:5px;border:1px solid rgba(255,255,255,.04)"><div><div style="font-size:.45rem;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.5px">IMAP Service</div><div style="font-size:.52rem;color:rgba(255,255,255,.5);margin-top:1px">mail.example.com:143</div></div><div style="display:flex;align-items:center;gap:4px"><div style="width:5px;height:5px;border-radius:50%;background:#4ade80"></div><span style="font-size:.45rem;color:#4ade80;font-weight:600">Live</span></div></div>`,
+          `<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 10px;background:rgba(255,255,255,.03);border-radius:5px;border:1px solid rgba(255,255,255,.04)"><div><div style="font-size:.45rem;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.5px">Queue Length</div><div style="font-size:.52rem;color:rgba(255,255,255,.5);margin-top:1px">Active queue</div></div><span style="font-size:.6rem;color:#FF6B35;font-weight:600">0</span></div>`,
+          `<div style="flex:1;background:rgba(255,255,255,.02);border-radius:5px;border:1px solid rgba(255,255,255,.04);padding:6px 10px;display:flex;align-items:center;gap:6px"><div style="flex:1;height:4px;background:rgba(255,255,255,.04);border-radius:2px;overflow:hidden"><div style="width:72%;height:100%;background:linear-gradient(90deg,#2D8CFF,#4ade80);border-radius:2px"></div></div><span style="font-size:.4rem;color:rgba(255,255,255,.25)">72%</span></div></div></div></div>`
+        ].join(''),
+        'workflow-automation':[
+          `<div class="mu" style="background:#0f0a18;display:flex;flex-direction:column;font-family:'Inter',sans-serif">`,
+          `<div style="display:flex;align-items:center;padding:10px 16px;background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.04);gap:10px">`,
+          `<div style="width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#8B5CF6,#6D28D9);display:flex;align-items:center;justify-content:center;font-size:6px;color:#fff;font-weight:700">N</div>`,
+          `<span style="font-size:.5rem;color:rgba(255,255,255,.5);font-weight:600;flex:1;letter-spacing:.3px">security-automation</span>`,
+          `<div style="display:flex;gap:4px"><div style="padding:2px 8px;border-radius:3px;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.12);font-size:.42rem;color:#8B5CF6;font-weight:600">Run</div><div style="width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.15)"></div></div></div>`,
+          `<div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8px 16px;gap:6px">`,
+          `<div style="display:flex;align-items:center;gap:8px;width:100%;justify-content:center">`,
+          `<div style="width:34px;height:34px;border-radius:8px;background:rgba(139,92,246,.15);border:1.5px solid rgba(139,92,246,.25);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,.6)" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>`,
+          `<div style="display:flex;flex-direction:column;align-items:center;gap:2px;width:36px"><div style="height:2px;width:100%;background:linear-gradient(90deg,rgba(139,92,246,.5),rgba(139,92,246,.1))"></div><div style="width:4px;height:4px;transform:rotate(45deg);border-top:1.5px solid rgba(139,92,246,.3);border-right:1.5px solid rgba(139,92,246,.3);margin-left:auto"></div></div>`,
+          `<div style="width:34px;height:34px;border-radius:8px;background:rgba(139,92,246,.1);border:1.5px solid rgba(139,92,246,.18);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,.5)" stroke-width="2"><path d="M20 12H4M12 4v16"/></svg></div>`,
+          `<div style="display:flex;flex-direction:column;align-items:center;gap:2px;width:36px"><div style="height:2px;width:100%;background:linear-gradient(90deg,rgba(139,92,246,.1),rgba(139,92,246,.3))"></div><div style="width:4px;height:4px;transform:rotate(45deg);border-top:1.5px solid rgba(139,92,246,.3);border-right:1.5px solid rgba(139,92,246,.3);margin-right:auto"></div></div>`,
+          `<div style="width:34px;height:34px;border-radius:8px;background:rgba(139,92,246,.06);border:1.5px solid rgba(139,92,246,.12);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(139,92,246,.4)" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div></div>`,
+          `<div style="display:flex;gap:24px;margin-top:2px"><span style="font-size:.4rem;color:rgba(255,255,255,.2);letter-spacing:.5px;text-transform:uppercase;font-weight:600">Trigger</span><span style="font-size:.4rem;color:rgba(255,255,255,.15);letter-spacing:.5px;text-transform:uppercase;font-weight:600">Process</span><span style="font-size:.4rem;color:rgba(255,255,255,.15);letter-spacing:.5px;text-transform:uppercase;font-weight:600">Output</span></div></div></div>`
+        ].join('')
+      };
+
+      document.getElementById('app').innerHTML=`
+        <section class="page-hero">
+          <div class="container">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+            <div class="hero-layout">
+              <div class="hero-shot" data-aos="fade-right">${mockups[p.slug]||'<div class="mu" style="background:#111"></div>'}</div>
+              <div class="hero-info" data-aos="fade-left">
+                <span class="label">${p.category}</span>
+                <h1>${p.title}</h1>
+                <p class="short-desc">${p.shortDesc}</p>
+                <div class="hero-meta">
+                  <span><i class="fas fa-calendar" style="color:#2D8CFF;font-size:.7rem"></i> <span class="year">${p.createdAt}</span></span>
+                  <span><i class="fas fa-circle" style="color:#4ade80;font-size:.45rem"></i> <span class="status">${p.status}</span></span>
+                </div>
+                <div class="hero-badges">
+                  ${(()=>{
+                    const allTech=[];
+                    for(const g in p.technologies)p.technologies[g].forEach(t=>allTech.push(t));
+                    return allTech.slice(0,8).map(t=>`<span>${t}</span>`).join('');
+                  })()}
+                </div>
+                <div class="hero-btns">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section data-aos="fade-up">
+          <div class="container detail-grid">
+            <span class="section-label orange">Overview</span>
+            <h2 class="section-title">Project Overview</h2>
+            <div class="text-block"><p>${p.overview}</p></div>
+          </div>
+        </section>
+
+        <section data-aos="fade-up">
+          <div class="container detail-grid">
+            <span class="section-label blue">Problem</span>
+            <h2 class="section-title">What Was The Problem?</h2>
+            <div class="text-block">
+              <ul>${p.problem.map(pr=>`<li><i class="fas fa-circle"></i> ${pr}</li>`).join('')}</ul>
+            </div>
+          </div>
+        </section>
+
+        <section data-aos="fade-up">
+          <div class="container detail-grid">
+            <span class="section-label orange">Solution</span>
+            <h2 class="section-title">How Was It Solved?</h2>
+            <div class="text-block"><p>${p.solution}</p></div>
+          </div>
+        </section>
+
+        <section data-aos="fade-up">
+          <div class="container">
+            <span class="section-label blue">Features</span>
+            <h2 class="section-title">Key Features</h2>
+            <div class="feat-grid">${p.features.map(f=>`<span><i class="fas fa-check-circle"></i> ${f}</span>`).join('')}</div>
+          </div>
+        </section>
+
+        <section data-aos="fade-up">
+          <div class="container">
+            <span class="section-label orange">Tech Stack</span>
+            <h2 class="section-title">Technology Stack</h2>
+            <div class="ts-grid">${Object.entries(p.technologies).map(([group,tags])=>`
+              <div class="ts-card">
+                <h4>${group}</h4>
+                <div class="ts-tags">${tags.map(t=>`<span>${t}</span>`).join('')}</div>
+              </div>
+            `).join('')}</div>
+          </div>
+        </section>
+
+        <section data-aos="fade-up">
+          <div class="container detail-grid">
+            <span class="section-label blue">Architecture</span>
+            <h2 class="section-title">System Architecture</h2>
+            <div class="arch-flow">${p.architecture.map((a,i)=>`
+              ${i>0?'<div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>':''}
+              <div class="arch-node">${a.from}</div>
+            `).join('')}
+            <div class="arch-arrow"><i class="fas fa-arrow-down"></i></div>
+            <div class="arch-node" style="border-color:rgba(255,107,53,.2)">${p.architecture[p.architecture.length-1].to}</div>
+            </div>
+          </div>
+        </section>
+
+        <section data-aos="fade-up">
+          <div class="container detail-grid">
+            <span class="section-label orange">Challenges</span>
+            <h2 class="section-title">Challenges Faced</h2>
+            ${p.challenges.map(c=>`<div class="list-card"><p>${c}</p></div>`).join('')}
+          </div>
+        </section>
+
+        <section data-aos="fade-up">
+          <div class="container detail-grid">
+            <span class="section-label blue">Lessons</span>
+            <h2 class="section-title">Lessons Learned</h2>
+            ${p.lessonsLearned.map(l=>`<div class="list-card"><p>${l}</p></div>`).join('')}
+          </div>
+        </section>
+
+        <section data-aos="fade-up">
+          <div class="container" style="text-align:center">
+            <div class="bottom-cta">
+              <a href="index.html" class="btn btn-ghost"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
+          </div>
+        </section>
+      `;
+      AOS.refresh();
+    }
+  </script>
+</body>
+</html>

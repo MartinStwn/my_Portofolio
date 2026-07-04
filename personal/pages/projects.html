@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Martinus Setiawan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .case-card{padding:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:20px;transition:var(--transition)}
+    .case-card:last-child{margin-bottom:0}
+    .case-card:hover{border-color:rgba(108,92,231,0.3)}
+    .case-card .case-icon{width:44px;height:44px;border-radius:12px;background:rgba(108,92,231,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--accent);font-size:1.2rem}
+    .case-card h3{font-size:1rem;margin-bottom:6px}
+    .case-card p{font-size:0.85rem;color:var(--text-dim);line-height:1.7;margin-bottom:12px}
+    .case-card .tags{display:flex;gap:6px;flex-wrap:wrap}
+    .case-card .tags span{font-size:0.72rem;padding:3px 10px;border-radius:100px;background:rgba(108,92,231,0.06);border:1px solid rgba(108,92,231,0.12);color:var(--accent)}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="logo"><a href="../index.html">M<span>.</span>Setiawan</a></div>
+      <ul id="navMenu">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      <div class="label"><i class="fas fa-shield"></i> Case Studies</div>
+      <h1>Security Projects</h1>
+      <p>Real-world security implementations from internship and lab work.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="case-card">
+        <div class="case-icon"><i class="fas fa-shield"></i></div>
+        <h3>Endpoint Security Implementation</h3>
+        <p>Implementation and testing of system protection using Kaspersky in Windows & Linux environments to ensure real-time protection against malware threats.</p>
+        <div class="tags">
+          <span>Kaspersky</span><span>Endpoint Security</span><span>Malware Simulation</span><span>Windows</span><span>Linux</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-icon"><i class="fas fa-server"></i></div>
+        <h3>Mail Server & Infrastructure Deployment</h3>
+        <p>Mail server configuration (Postfix, Dovecot, Roundcube) and network troubleshooting (VoIP, LAN) to support corporate IT operations.</p>
+        <div class="tags">
+          <span>Postfix</span><span>Dovecot</span><span>Roundcube</span><span>VoIP</span><span>LAN</span><span>Juniper</span>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-icon"><i class="fas fa-robot"></i></div>
+        <h3>Workflow Automation & Security Efficiency</h3>
+        <p>Workflow and webhook-based chatbot development using n8n to improve operational efficiency and infrastructure security.</p>
+        <div class="tags">
+          <span>n8n</span><span>Webhook</span><span>Automation</span><span>Chatbot</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container" style="text-align:center;padding:40px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg)">
+      <i class="fas fa-shield" style="font-size:2.5rem;color:var(--accent);margin-bottom:12px;display:block"></i>
+      <h2 style="font-size:1.3rem;margin-bottom:8px">Zero Security Incidents</h2>
+      <p style="color:var(--text-dim);font-size:0.9rem;max-width:500px;margin:0 auto">Throughout all projects and internship, I've maintained a perfect security record — demonstrating my commitment to building and operating secure systems.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Martinus Setiawan. Built with curiosity.</p>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>
