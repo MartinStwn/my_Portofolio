@@ -23,29 +23,41 @@ export function Reveal({
     const el = ref.current
     if (!el) return
 
+    const show = () => setVisible(true)
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      show()
+      return
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true)
+          show()
           observer.disconnect()
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.05, rootMargin: '80px 0px' },
     )
 
     observer.observe(el)
-    return () => observer.disconnect()
+    const fallback = window.setTimeout(show, 800)
+
+    return () => {
+      observer.disconnect()
+      window.clearTimeout(fallback)
+    }
   }, [])
 
   return (
     <Tag
       ref={ref}
       className={cn(
-        'transition-all duration-700 ease-out will-change-transform',
-        visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
+        'transition-all duration-700 ease-out',
+        visible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0',
         className,
       )}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{ transitionDelay: visible ? `${delay}ms` : '0ms' }}
     >
       {children}
     </Tag>

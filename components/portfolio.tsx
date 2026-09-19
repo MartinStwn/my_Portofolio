@@ -1,193 +1,140 @@
-import { ExternalLink, Github, CheckCircle2, ShieldCheck } from 'lucide-react'
+import Image from 'next/image'
 import { Reveal } from '@/components/reveal'
 
 type Project = {
+  category: string
   title: string
-  subtitle: string
   description: string
-  impact: string[]
-  security: string[]
   tech: string[]
-  links: {
-    demo: string
-    github: string
-  }
-  gradient: string
-  featured: boolean
+  image: string
+  alt: string
 }
 
 const projects: Project[] = [
   {
-    title: 'NOC Observability Dashboard',
-    subtitle: 'Network Operations Center Monitoring',
+    category: 'IT SECURITY / KASPERSKY',
+    title: 'Kaspersky Endpoint Security Testing',
     description:
-      'Dashboard observabilitas end-to-end untuk pemantauan jaringan dan infrastruktur secara real-time, memungkinkan respons insiden yang proaktif dan pelacakan kesehatan sistem.',
-    impact: [
-      'Visibilitas real-time terhadap infrastruktur jaringan',
-      'Pengurangan Mean Time to Detection (MTTD) untuk insiden',
-      'Sentralisasi alerting dan analisis tren historis',
-    ],
-    security: [
-      'Role-based access control (RBAC) untuk tim NOC',
-      'Ingesti data yang aman dari perangkat jaringan',
-      'Audit logging untuk perubahan konfigurasi',
-    ],
-    tech: ['Grafana', 'Prometheus', 'Linux', 'Networking Protocols'],
-    links: { demo: '#', github: '#' },
-    gradient: 'from-blue-600 to-indigo-600',
-    featured: true,
+      'Hands-on testing and evaluation of Kaspersky Endpoint Security in an IT Security internship environment: agent deployment, detection testing, applying protection policies, and verifying protection status on end-user devices.',
+    tech: ['Kaspersky', 'EDR', 'Endpoint Protection', 'Policy Testing'],
+    image: '/images/kaspersky-testing.png',
+    alt: 'Kaspersky Endpoint Security testing and evaluation',
   },
   {
-    title: 'LVM Recovery & System Resilience',
-    subtitle: 'Infrastructure Disaster Recovery',
+    category: 'IT SECURITY / HSM',
+    title: 'Hardware Security Module (HSM) Maintenance',
     description:
-      'Eksekusi langsung prosedur pemulihan Logical Volume Manager (LVM) dan restorasi sistem untuk memastikan kelangsungan bisnis dan integritas data.',
-    impact: [
-      'Restorasi sukses pada logical volume yang kritis',
-      'Minimalisasi downtime saat terjadi kegagalan storage',
-      'Dokumentasi SOP (Standard Operating Procedure) untuk pemulihan',
-    ],
-    security: [
-      'Verifikasi integritas data pasca-pemulihan',
-      'Penanganan backup yang aman dan kontrol akses',
-      'Kepatuhan terhadap kebijakan retensi data',
-    ],
-    tech: ['Linux', 'LVM', 'Zabbix', 'Bash Scripting'],
-    links: { demo: '#', github: '#' },
-    gradient: 'from-emerald-600 to-teal-600',
-    featured: true,
+      'Performing Hardware Security Module (HSM) unit maintenance: unit health monitoring, slot and SO PIN management, key backup/recovery, and ensuring cryptographic keys remain secure for signing and cryptography services.',
+    tech: ['HSM', 'Cryptography', 'Key Management', 'Hardware'],
+    image: '/images/hsm-maintenance.png',
+    alt: 'Hardware Security Module (HSM) maintenance illustration',
   },
   {
-    title: 'SecurePOS',
-    subtitle: 'Secure Restaurant Management System',
+    category: 'NOC / MAIL SERVER',
+    title: 'Mail Server Deployment',
     description:
-      'Sistem POS restoran lengkap dengan antarmuka kasir, manajemen inventaris, analitik penjualan, dan kontrol akses berbasis peran.',
-    impact: [
-      'Mendukung 200+ transaksi harian',
-      'Memangkas waktu pelaporan hingga 70%',
-      'Mengurangi ketidaksesuaian inventaris hingga 90%',
-    ],
-    security: [
-      'Argon2id password hashing',
-      'RBAC (Admin, Manager, Cashier)',
-      'Audit logging & CSRF protection',
-    ],
-    tech: ['Next.js', 'Laravel', 'PostgreSQL', 'Tailwind CSS'],
-    links: { demo: '#', github: '#' },
-    gradient: 'from-purple-600 to-pink-600',
-    featured: false,
+      'Building an organization mail server on Ubuntu Server using Postfix as the MTA, Dovecot for IMAP/POP3 services, and Roundcube as webmail, complete with secure authentication and access.',
+    tech: ['Postfix', 'Dovecot', 'Roundcube', 'Ubuntu Server'],
+    image: '/images/mail-server.png',
+    alt: 'Mail server architecture diagram — Postfix, Dovecot, and Roundcube',
+  },
+  {
+    category: 'NOC / MONITORING — ZABBIX',
+    title: 'Zabbix Infrastructure Monitoring',
+    description:
+      'Building a lab infrastructure monitoring dashboard using Zabbix: host availability tracking, CPU/memory/disk utilization, network traffic, and alerting on anomalies across NOC servers and services.',
+    tech: ['Zabbix', 'Server Monitoring', 'SNMP', 'Alerting'],
+    image: '/images/Dasboard-Lab-Zabbix.png',
+    alt: 'Zabbix infrastructure monitoring dashboard',
+  },
+  {
+    category: 'NOC / MONITORING — GRAFANA',
+    title: 'Grafana Metrics & Observability',
+    description:
+      'Building an observability dashboard for the lab infrastructure with Grafana: visualizing system performance metrics, service availability, and real-time data trends so infrastructure health is easy to monitor and analyze.',
+    tech: ['Grafana', 'Metrics', 'Observability', 'Dashboard'],
+    image: '/images/Dassboard-Lab-Grafana.png',
+    alt: 'Grafana observability and metrics dashboard',
+  },
+  {
+    category: 'NOC / MONITORING — UPTIME KUMA',
+    title: 'Uptime Monitoring with Uptime Kuma',
+    description:
+      'Running Uptime Kuma for service availability monitoring: periodic uptime checks, status page, and automated notifications so the NOC team responds quickly when downtime occurs.',
+    tech: ['Uptime Kuma', 'Uptime', 'Status Page', 'Notification'],
+    image: '/images/Dashboard-Grafana(Uptime Kuma).png',
+    alt: 'Uptime Kuma uptime monitoring dashboard',
+  },
+  {
+    category: 'MIS / AUTOMATION',
+    title: 'Workflow Automation with n8n',
+    description:
+      'Automating workflows and integrating applications using n8n: data synchronization, automated notifications, and generating routine reports that reduce manual work in the MIS division.',
+    tech: ['n8n', 'Automation', 'API Integration', 'Workflow'],
+    image: '/images/n8n-automation.png',
+    alt: 'Workflow automation with n8n illustration',
+  },
+  {
+    category: 'MIS / CHATBOT',
+    title: 'Chatbot Development with n8n',
+    description:
+      'Designing and building a chatbot for internal information services using n8n: conversation flows, webhooks, and AI integration to answer user questions automatically.',
+    tech: ['n8n', 'Chatbot', 'Webhook', 'AI Integration'],
+    image: '/images/n8n-chatbot.png',
+    alt: 'Automated chatbot with n8n illustration',
   },
 ]
 
 export function Portfolio() {
   return (
-    <section id="portofolio" className="py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-medium uppercase tracking-widest text-primary">
-            Portofolio
+    <section id="projects" className="scroll-mt-24 border-t border-zinc-900/80 py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <Reveal>
+          <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
+            Projects
           </p>
-          <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight sm:text-4xl">
-            Beberapa Proyek yang Pernah Dikerjakan
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Security Case Studies
           </h2>
-          <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
-            Berbagai proyek nyata yang telah membantu klien mencapai tujuan
-            digital mereka.
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+            Real security implementations from internship and hands-on lab work.
           </p>
         </Reveal>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
-            <Reveal
-              key={project.title}
-              delay={(i % 3) * 100}
-              className={project.featured ? 'sm:col-span-2 lg:col-span-1' : ''}
-            >
-              <article className="group glass flex h-full flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/40">
-                <div
-                  className={`relative flex aspect-[16/10] items-center justify-center bg-gradient-to-br ${project.gradient}`}
-                >
-                  {project.featured && (
-                    <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-foreground shadow">
-                      Featured
-                    </span>
-                  )}
-                  <h3 className="px-6 text-center text-xl font-bold text-white drop-shadow-md">
-                    {project.title}
-                  </h3>
+            <Reveal key={project.title} delay={i * 80}>
+              <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 transition-all hover:-translate-y-1 hover:border-orange-500/40">
+                <div className="relative aspect-video overflow-hidden border-b border-zinc-800 bg-black">
+                  <Image
+                    src={project.image}
+                    alt={project.alt}
+                    fill
+                    unoptimized={true}
+                    priority={i < 3}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="text-sm font-medium text-primary">
-                    {project.subtitle}
+                  <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
+                    {project.category}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <h3 className="mt-3 text-lg font-semibold text-white">
+                    {project.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">
                     {project.description}
                   </p>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <div className="mt-auto flex flex-wrap gap-2 pt-5">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-md bg-secondary px-2 py-1 text-xs font-medium text-muted-foreground"
+                        className="rounded-full bg-zinc-900 px-3 py-1 text-xs font-medium text-zinc-300 ring-1 ring-zinc-800"
                       >
                         {tech}
                       </span>
                     ))}
-                  </div>
-
-                  <div className="mt-4 space-y-2">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Impact
-                    </p>
-                    <ul className="space-y-2">
-                      {project.impact.map((item) => (
-                        <li
-                          key={item}
-                          className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground"
-                        >
-                          <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-4 space-y-2">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Security
-                    </p>
-                    <ul className="space-y-2">
-                      {project.security.map((item) => (
-                        <li
-                          key={item}
-                          className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground"
-                        >
-                          <ShieldCheck className="mt-0.5 size-4 shrink-0 text-primary" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-6 flex items-center gap-3 pt-1">
-                    <a
-                      href={project.links.demo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary/80"
-                    >
-                      <ExternalLink className="size-4" />
-                      Demo
-                    </a>
-                    <a
-                      href={project.links.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      <Github className="size-4" />
-                      Repository
-                    </a>
                   </div>
                 </div>
               </article>

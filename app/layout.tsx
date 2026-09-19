@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from 'next'
-import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
@@ -16,30 +16,32 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Andra Pratama — Web Developer & Cyber Security Specialist',
+  title: 'Martinus Setiawan — Cybersecurity Enthusiast',
   description:
-    'Membantu UMKM, startup, dan perusahaan membangun website modern, cepat, dan aman untuk meningkatkan kepercayaan pelanggan serta memperkuat kehadiran digital.',
+    'Cybersecurity enthusiast exploring offensive and defensive security through real internship work and hands-on lab projects.',
   keywords: [
-    'jasa pembuatan website',
-    'web developer Indonesia',
-    'cyber security',
-    'website UMKM',
-    'company profile',
-    'landing page',
-    'keamanan website',
+    'cybersecurity',
+    'security student',
+    'IT Security & NOC intern',
+    'IT security',
+    'network monitoring',
+    'web developer',
+    'penetration testing',
+    'SIEM',
+    'Linux security',
   ],
   generator: 'v0.app',
   openGraph: {
-    title: 'Andra Pratama — Web Developer & Cyber Security Specialist',
+    title: 'Martinus Setiawan — Cybersecurity Enthusiast',
     description:
-      'Membangun website profesional, cepat, dan aman untuk bisnis Anda.',
+      'Cybersecurity Enthusiast',
     locale: 'id_ID',
     type: 'website',
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0e1726',
+  themeColor: '#050505',
   width: 'device-width',
   initialScale: 1,
 }
@@ -52,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="id" className="dark bg-background">
       <body
-        className={`${jakarta.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

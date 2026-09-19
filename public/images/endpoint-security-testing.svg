@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <rect width="640" height="360" fill="#09090b"/>
+  <rect x="24" y="24" width="592" height="312" rx="20" fill="#111113" stroke="#27272a"/>
+  <circle cx="520" cy="88" r="90" fill="#f97316" fill-opacity="0.08"/>
+  <rect x="72" y="86" width="220" height="148" rx="12" fill="#18181b" stroke="#3f3f46"/>
+  <rect x="88" y="102" width="188" height="104" rx="6" fill="#0a0a0a"/>
+  <circle cx="182" cy="154" r="28" fill="#27272a"/>
+  <circle cx="182" cy="154" r="14" fill="#f97316"/>
+  <rect x="108" y="248" width="148" height="10" rx="5" fill="#3f3f46"/>
+  <path d="M360 118l70-28 70 28v52c0 42-28 72-70 88-42-16-70-46-70-88v-52z" fill="#18181b" stroke="#f97316" stroke-width="3"/>
+  <path d="M404 168l22 22 40-44" stroke="#f97316" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="72" y="78" fill="#f97316" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="2">ENDPOINT HARDENING</text>
+  <text x="360" y="268" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14">EDR · Policy · Patching</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <rect width="640" height="360" fill="#09090b"/>
+  <rect x="24" y="24" width="592" height="312" rx="20" fill="#111113" stroke="#27272a"/>
+  <circle cx="520" cy="270" r="90" fill="#f97316" fill-opacity="0.08"/>
+  <rect x="72" y="104" width="280" height="170" rx="16" fill="#18181b" stroke="#3f3f46"/>
+  <rect x="72" y="104" width="280" height="34" rx="16" fill="#27272a"/>
+  <circle cx="92" cy="121" r="6" fill="#f97316"/>
+  <text x="108" y="126" fill="#d4d4d8" font-family="ui-monospace, monospace" font-size="13">support-bot</text>
+  <rect x="92" y="154" width="130" height="30" rx="15" fill="#27272a"/>
+  <text x="157" y="173" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" text-anchor="middle">Hello, how can I help?</text>
+  <rect x="182" y="198" width="150" height="30" rx="15" fill="#f97316"/>
+  <text x="257" y="217" fill="#09090b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" text-anchor="middle">Cek jadwal maintenance</text>
+  <rect x="92" y="242" width="150" height="30" rx="15" fill="#27272a"/>
+  <text x="167" y="261" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" text-anchor="middle">Ticket #1042 opened</text>
+  <rect x="420" y="140" width="130" height="118" rx="16" fill="#18181b" stroke="#f97316" stroke-width="3"/>
+  <path d="M485 140v-14" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="485" cy="122" r="5" fill="#f97316"/>
+  <rect x="440" y="150" width="90" height="58" rx="6" fill="#0a0a0a" stroke="#3f3f46"/>
+  <circle cx="468" cy="178" r="8" fill="#f97316"/>
+  <circle cx="502" cy="178" r="8" fill="#f97316"/>
+  <rect x="468" y="194" width="34" height="6" rx="3" fill="#3f3f46"/>
+  <rect x="440" y="222" width="90" height="16" rx="4" fill="#27272a" stroke="#3f3f46"/>
+  <text x="72" y="80" fill="#f97316" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="2">AUTOMATED CHATBOT</text>
+  <text x="410" y="306" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14">n8n  Webhook  AI  Helpdesk</text>
+</svg>

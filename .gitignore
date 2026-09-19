@@ -13,3 +13,26 @@ __v0_jsx-dev-runtime.ts
 node_modules
 .next/
 .DS_Store
+# Duplikat di root (salinan sudah identik di public/images) — jangan di-push
+Foto Profil.jpeg
+Automation n8n.png
+Chatbot n8n.png
+Hardware Security Module.png
+Kaspersky Endpoint-Security.png
+Mail Server.png
+Foto Profil.jpeg
+Automation n8n.png
+Chatbot n8n.png
+Hardware Security Module.png
+Kaspersky Endpoint-Security.png
+Mail Server.png
+Foto Profil.jpeg
+Automation n8n.png
+Chatbot n8n.png
+Hardware Security Module.png
+Kaspersky Endpoint-Security.png
+Mail Server.png
+Dassboard-Lab-Grafana.png
+Dasboard-Lab-Zabbix.png
+Dassboard-Lab-Grafana.png
+Dashboard-Grafana(Uptime Kuma).png

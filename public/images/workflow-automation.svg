@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <rect width="640" height="360" fill="#09090b"/>
+  <rect x="24" y="24" width="592" height="312" rx="20" fill="#111113" stroke="#27272a"/>
+  <circle cx="560" cy="70" r="70" fill="#f97316" fill-opacity="0.08"/>
+  <rect x="72" y="96" width="250" height="176" rx="12" fill="#0a0a0a" stroke="#3f3f46"/>
+  <text x="88" y="124" fill="#71717a" font-family="ui-monospace, monospace" font-size="13">#!/bin/bash</text>
+  <text x="88" y="150" fill="#f97316" font-family="ui-monospace, monospace" font-size="13">cron -e</text>
+  <text x="88" y="176" fill="#d4d4d8" font-family="ui-monospace, monospace" font-size="13">0 2 * * * backup.sh</text>
+  <text x="88" y="202" fill="#d4d4d8" font-family="ui-monospace, monospace" font-size="13">0 6 * * * report.py</text>
+  <text x="88" y="228" fill="#22c55e" font-family="ui-monospace, monospace" font-size="13">ok · 3 jobs scheduled</text>
+  <circle cx="430" cy="140" r="28" fill="#18181b" stroke="#f97316" stroke-width="3"/>
+  <path d="M430 122v18l12 8" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+  <rect x="390" y="188" width="80" height="36" rx="8" fill="#18181b" stroke="#3f3f46"/>
+  <rect x="490" y="188" width="80" height="36" rx="8" fill="#18181b" stroke="#3f3f46"/>
+  <path d="M458 206h32" stroke="#f97316" stroke-width="3"/>
+  <path d="M482 198l16 8-16 8" stroke="#f97316" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="72" y="80" fill="#f97316" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="2">SCRIPT AUTOMATION</text>
+  <text x="390" y="256" fill="#a1a1aa" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14">Bash · Cron · Python</text>
+</svg>
