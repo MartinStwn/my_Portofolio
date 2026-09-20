@@ -1,27 +1,27 @@
-import { Mail, Linkedin, Github, Instagram } from 'lucide-react'
+import { GmailIcon, LinkedinIcon, GithubIcon, InstagramIcon } from '@/components/icons'
 import { Reveal } from '@/components/reveal'
 
 const contactChannels = [
   {
-    icon: Mail,
+    icon: GmailIcon,
     label: 'Email',
     value: 'martin.cyber092@gmail.com',
     href: 'mailto:martin.cyber092@gmail.com',
   },
   {
-    icon: Linkedin,
+    icon: LinkedinIcon,
     label: 'LinkedIn',
     value: 'in/martinus-setiawan',
     href: 'https://www.linkedin.com/in/martinus-setiawan-b72621328/',
   },
   {
-    icon: Github,
+    icon: GithubIcon,
     label: 'GitHub',
     value: '@MartinStwn',
     href: 'https://github.com/MartinStwn',
   },
   {
-    icon: Instagram,
+    icon: InstagramIcon,
     label: 'Instagram',
     value: '@mars_yakubets',
     href: 'https://www.instagram.com/mars_yakubets/',
