@@ -1,6 +1,10 @@
 import { Navbar } from '@/components/navbar'
 import { Hero } from '@/components/hero'
+import { About } from '@/components/about'
+import { Skills } from '@/components/skills'
+import { Services } from '@/components/services'
 import { Portfolio } from '@/components/portfolio'
+import { Testimonials } from '@/components/testimonials'
 import { Experience } from '@/components/experience'
 import { Contact } from '@/components/contact'
 import { Footer } from '@/components/footer'
@@ -11,7 +15,11 @@ export default function Page() {
       <Navbar />
       <main>
         <Hero />
+        <About />
+        <Skills />
+        <Services />
         <Portfolio />
+        <Testimonials />
         <Experience />
         <Contact />
       </main>
