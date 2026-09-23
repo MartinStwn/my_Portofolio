@@ -22,16 +22,6 @@ export function Hero() {
       </div>
 
       <div className="mx-auto flex max-w-3xl flex-col items-center px-6 text-center lg:px-8">
-        <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-orange-400">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-orange-400 opacity-75" />
-              <span className="relative inline-flex size-2 rounded-full bg-orange-500" />
-            </span>
-            Available for Internship
-          </span>
-        </Reveal>
-
         <Reveal delay={120}>
           <div className="relative mx-auto mt-10 size-40 sm:size-48">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-400 via-orange-600 to-orange-800 blur-sm" />
@@ -46,10 +36,9 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={240}>
-          <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Martinus
-            <span className="mt-1 block bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
-              Setiawan
+          <h1 className="mt-10 text-3xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
+            <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+              Martinus&nbsp;Setiawan
             </span>
           </h1>
           <p className="mt-6 text-sm leading-relaxed text-zinc-400 sm:text-base">
