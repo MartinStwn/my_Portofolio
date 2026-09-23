@@ -48,7 +48,7 @@ const projects = [
     description:
       'Building a lab infrastructure monitoring dashboard using Zabbix: host availability tracking, CPU/memory/disk utilization, network traffic, and alerting on anomalies across NOC servers and services.',
     tech: ['Zabbix', 'Server Monitoring', 'SNMP', 'Alerting'],
-    image: '/images/Dashboard-Lab-Zabbix.png',
+    image: '/images/dashboard-lab-zabbix.png',
     alt: 'Zabbix infrastructure monitoring dashboard',
   },
   {
@@ -57,7 +57,7 @@ const projects = [
     description:
       'Building an observability dashboard for the lab infrastructure with Grafana: visualizing system performance metrics, service availability, and real-time data trends so infrastructure health is easy to monitor and analyze.',
     tech: ['Grafana', 'Metrics', 'Observability', 'Dashboard'],
-    image: '/images/Dassboard-Lab-Grafana.png',
+    image: '/images/dashboard-lab-grafana.png',
     alt: 'Grafana observability and metrics dashboard',
   },
   {
@@ -66,7 +66,7 @@ const projects = [
     description:
       'Running Uptime Kuma for service availability monitoring: periodic uptime checks, status page, and automated notifications so the NOC team responds quickly when downtime occurs.',
     tech: ['Uptime Kuma', 'Uptime', 'Status Page', 'Notification'],
-    image: '/images/Dashboard-Grafana(Uptime Kuma).png',
+    image: '/images/dashboard-uptime-kuma.png',
     alt: 'Uptime Kuma uptime monitoring dashboard',
   },
   {
