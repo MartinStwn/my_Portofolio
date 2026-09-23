@@ -1,5 +1,9 @@
+'use client'
+
+import { useMemo, useState } from 'react'
 import Image from 'next/image'
 import { Reveal } from '@/components/reveal'
+import { cn } from '@/lib/utils'
 
 type Project = {
   category: string
@@ -10,7 +14,7 @@ type Project = {
   alt: string
 }
 
-const projects: Project[] = [
+const projects = [
   {
     category: 'IT SECURITY / KASPERSKY',
     title: 'Kaspersky Endpoint Security Testing',
@@ -44,7 +48,7 @@ const projects: Project[] = [
     description:
       'Building a lab infrastructure monitoring dashboard using Zabbix: host availability tracking, CPU/memory/disk utilization, network traffic, and alerting on anomalies across NOC servers and services.',
     tech: ['Zabbix', 'Server Monitoring', 'SNMP', 'Alerting'],
-    image: '/images/Dasboard-Lab-Zabbix.png',
+    image: '/images/Dashboard-Lab-Zabbix.png',
     alt: 'Zabbix infrastructure monitoring dashboard',
   },
   {
@@ -85,52 +89,102 @@ const projects: Project[] = [
   },
 ]
 
+const filters = [
+  { label: 'All', value: 'all' },
+  { label: 'Security', value: 'IT SECURITY' },
+  { label: 'Monitoring', value: 'NOC / MONITORING' },
+  { label: 'Automation', value: 'MIS / AUTOMATION' },
+  { label: 'NOC', value: 'NOC / MAIL SERVER' },
+]
+
 export function Portfolio() {
+  const [active, setActive] = useState('all')
+
+  const visible = useMemo(
+    () =>
+      active === 'all'
+        ? projects
+        : projects.filter((p) => p.category.includes(active)),
+    [active],
+  )
+
   return (
-    <section id="projects" className="scroll-mt-24 border-t border-zinc-900/80 py-20 sm:py-28">
+    <section
+      id="projects"
+      className="scroll-mt-24 border-t border-zinc-900/80 py-20 sm:py-28"
+    >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
-            Projects
+            Portfolio
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Security Case Studies
+            Featured Projects
           </h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
-            Real security implementations from internship and hands-on lab work.
+            Selected case studies from my cybersecurity internship and hands-on
+            lab work.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, i) => (
-            <Reveal key={project.title} delay={i * 80}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 transition-all hover:-translate-y-1 hover:border-orange-500/40">
-                <div className="relative aspect-video overflow-hidden border-b border-zinc-800 bg-black">
+        <div className="mt-10 flex flex-wrap gap-2">
+          {filters.map((filter) => (
+            <button
+              key={filter.value}
+              type="button"
+              onClick={() => setActive(filter.value)}
+              className={cn(
+                'rounded-full border px-4 py-1.5 text-xs font-semibold transition-colors',
+                active === filter.value
+                  ? 'border-orange-500 bg-orange-500 text-black'
+                  : 'border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white',
+              )}
+            >
+              {filter.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {visible.map((project, i) => (
+            <Reveal key={project.title} delay={i * 60}>
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 transition-all hover:-translate-y-1.5 hover:border-orange-500/50 hover:shadow-[0_24px_60px_-20px_rgba(249,115,22,0.25)]">
+                {/* Glare yang bergeser saat hover */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(115deg,transparent_30%,rgba(255,255,255,0.06)_45%,transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                />
+
+                <div className="relative aspect-[16/10] overflow-hidden border-b border-zinc-800 bg-black">
                   <Image
                     src={project.image}
                     alt={project.alt}
                     fill
                     unoptimized={true}
-                    priority={i < 3}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent" />
+                  <div className="absolute left-4 top-4">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-500/30 bg-black/60 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-orange-400 backdrop-blur-sm">
+                      <span className="size-1.5 rounded-full bg-orange-500" />
+                      {project.category}
+                    </span>
+                  </div>
                 </div>
+
                 <div className="flex flex-1 flex-col p-6">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
-                    {project.category}
-                  </p>
-                  <h3 className="mt-3 text-lg font-semibold text-white">
+                  <h3 className="text-lg font-semibold text-white transition-colors group-hover:text-orange-400">
                     {project.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-zinc-400">
                     {project.description}
                   </p>
-                  <div className="mt-auto flex flex-wrap gap-2 pt-5">
+                  <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-full bg-zinc-900 px-3 py-1 text-xs font-medium text-zinc-300 ring-1 ring-zinc-800"
+                        className="rounded-md bg-zinc-900 px-2.5 py-1 text-[11px] font-medium text-zinc-300 ring-1 ring-zinc-800 transition-colors group-hover:ring-orange-500/30"
                       >
                         {tech}
                       </span>
