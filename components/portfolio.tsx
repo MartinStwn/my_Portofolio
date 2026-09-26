@@ -1,7 +1,8 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
+import { ArrowUpRight, BookOpen, Maximize2, X } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { cn } from '@/lib/utils'
 
@@ -12,6 +13,8 @@ type Project = {
   tech: string[]
   image: string
   alt: string
+  metric?: string
+  link?: { label: string; href: string }
 }
 
 const projects = [
@@ -99,6 +102,20 @@ const filters = [
 
 export function Portfolio() {
   const [active, setActive] = useState('all')
+  const [preview, setPreview] = useState<Project | null>(null)
+
+  useEffect(() => {
+    if (!preview) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setPreview(null)
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [preview])
 
   const visible = useMemo(
     () =>
@@ -155,7 +172,12 @@ export function Portfolio() {
                   className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(115deg,transparent_30%,rgba(255,255,255,0.06)_45%,transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 />
 
-                <div className="relative aspect-[16/9] overflow-hidden border-b border-zinc-800 bg-black">
+                <button
+                  type="button"
+                  onClick={() => setPreview(project)}
+                  aria-label={`Perbesar: ${project.title}`}
+                  className="relative block aspect-[16/9] w-full cursor-zoom-in overflow-hidden border-b border-zinc-800 bg-black"
+                >
                   <Image
                     src={project.image}
                     alt={project.alt}
@@ -171,15 +193,35 @@ export function Portfolio() {
                       {project.category}
                     </span>
                   </div>
-                </div>
+                  <span className="absolute bottom-2.5 right-2.5 inline-flex items-center gap-1 rounded-md bg-black/70 px-2 py-1 text-[10px] font-semibold text-zinc-300 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+                    <Maximize2 className="size-3" />
+                    Perbesar
+                  </span>
+                </button>
 
                 <div className="flex flex-1 flex-col p-4">
                   <h3 className="text-[15px] font-semibold leading-snug text-white transition-colors group-hover:text-orange-400">
                     {project.title}
                   </h3>
+                  {project.metric ? (
+                    <p className="mt-1.5 inline-flex w-fit items-center rounded-md border border-orange-500/25 bg-orange-500/10 px-2 py-0.5 text-[11px] font-semibold text-orange-400">
+                      {project.metric}
+                    </p>
+                  ) : null}
                   <p className="mt-1.5 line-clamp-3 text-xs leading-relaxed text-zinc-400">
                     {project.description}
                   </p>
+                  {project.link ? (
+                    <a
+                      href={project.link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-flex w-fit items-center gap-1 text-[11px] font-semibold text-orange-400 transition-colors hover:text-orange-300"
+                    >
+                      {project.link.label}
+                      <ArrowUpRight className="size-3" />
+                    </a>
+                  ) : null}
                   <div className="mt-auto flex flex-wrap gap-1 pt-3">
                     {project.tech.map((tech) => (
                       <span
@@ -196,6 +238,62 @@ export function Portfolio() {
           ))}
         </div>
       </div>
+
+      {preview ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={preview.title}
+          onClick={() => setPreview(null)}
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-black/90 p-4 backdrop-blur-sm sm:p-8"
+        >
+          <button
+            type="button"
+            onClick={() => setPreview(null)}
+            aria-label="Tutup pratinjau"
+            className="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 transition-colors hover:border-orange-500 hover:text-orange-400"
+          >
+            <X className="size-5" />
+          </button>
+
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative flex max-h-[80vh] w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950"
+          >
+            <div className="relative w-full bg-black" style={{ aspectRatio: '16 / 9' }}>
+              <Image
+                src={preview.image}
+                alt={preview.alt}
+                fill
+                unoptimized={true}
+                sizes="100vw"
+                className="object-contain"
+              />
+            </div>
+            <div className="flex flex-col gap-1 border-t border-zinc-800 p-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-orange-500">
+                  {preview.category}
+                </p>
+                <h3 className="mt-0.5 text-sm font-semibold text-white sm:text-base">
+                  {preview.title}
+                </h3>
+              </div>
+              {preview.link ? (
+                <a
+                  href={preview.link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-fit items-center gap-1.5 rounded-full border border-orange-500/40 px-4 py-2 text-xs font-semibold text-orange-400 transition-colors hover:bg-orange-500 hover:text-black"
+                >
+                  <BookOpen className="size-3.5" />
+                  {preview.link.label}
+                </a>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   )
 }
