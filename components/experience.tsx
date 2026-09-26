@@ -28,7 +28,7 @@ const timeline: TimelineItem[] = [
     subtitle: 'Offensive & Defensive',
     description:
       'Building personal labs to practice penetration testing and defensive techniques, from endpoint telemetry to vulnerability management.',
-    skills: ['Kali Linux', 'Nmap', 'Wireshark', 'Zabbix', 'Virtualization'],
+    skills: ['Fedora Linux', 'Nmap', 'Wireshark', 'Zabbix', 'Virtualization'],
   },
 ]
 
@@ -56,7 +56,7 @@ const toolkit = [
   {
     group: 'Offensive & Scripting',
     icon: Terminal,
-    tools: ['Kali Linux', 'Nmap', 'Wireshark', 'Python', 'Bash'],
+    tools: ['Fedora Linux', 'Nmap', 'Wireshark', 'Python', 'Bash'],
   },
   {
     group: 'Platform & Web',
