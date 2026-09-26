@@ -29,12 +29,32 @@ const timeline: TimelineItem[] = [
       'Building personal labs to practice penetration testing and defensive techniques, from endpoint telemetry to vulnerability management.',
     skills: ['Kali Linux', 'Nmap', 'Wireshark', 'Zabbix', 'Virtualization'],
   },
+]
+
+const toolkit = [
   {
-    title: 'Certifications',
-    subtitle: 'Academic Coursework',
-    description:
-      'Continuously completing security-related coursework and exams to build a solid, verifiable foundation in cybersecurity principles.',
-    skills: ['Networking Basics', 'Ethical Hacking', 'Risk Assessment'],
+    group: 'Security Operations',
+    tools: ['Kaspersky Endpoint Security', 'EDR', 'HSM / PKI', 'Incident Response', 'SIEM'],
+  },
+  {
+    group: 'Monitoring & Observability',
+    tools: ['Zabbix', 'Grafana', 'Uptime Kuma', 'SNMP', 'Alerting'],
+  },
+  {
+    group: 'Automation',
+    tools: ['n8n', 'Webhooks', 'API Integration', 'Chatbot', 'Workflow Design'],
+  },
+  {
+    group: 'Infrastructure',
+    tools: ['Linux / Ubuntu Server', 'Postfix', 'Dovecot', 'Roundcube', 'PostgreSQL'],
+  },
+  {
+    group: 'Offensive & Scripting',
+    tools: ['Kali Linux', 'Nmap', 'Wireshark', 'Python', 'Bash'],
+  },
+  {
+    group: 'Platform & Web',
+    tools: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'Git'],
   },
 ]
 
@@ -83,6 +103,44 @@ export function Experience() {
               </Reveal>
             ))}
           </ol>
+        </div>
+
+        <div className="mt-20 border-t border-zinc-900/80 pt-14">
+          <Reveal>
+            <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
+              Toolkit
+            </p>
+            <h3 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              Technical Skills I Work With
+            </h3>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
+              Tools and platforms I actively use across security operations,
+              monitoring, automation, and infrastructure work.
+            </p>
+          </Reveal>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {toolkit.map((category, i) => (
+              <Reveal key={category.group} delay={i * 60}>
+                <div className="h-full rounded-xl border border-zinc-800 bg-zinc-950/60 p-5 transition-colors hover:border-orange-500/40">
+                  <h4 className="flex items-center gap-2 text-sm font-semibold text-white">
+                    <span className="size-1.5 rounded-full bg-orange-500" />
+                    {category.group}
+                  </h4>
+                  <div className="mt-3.5 flex flex-wrap gap-1.5">
+                    {category.tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className="rounded-md bg-zinc-900 px-2 py-1 text-[11px] font-medium text-zinc-300 ring-1 ring-zinc-800"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
