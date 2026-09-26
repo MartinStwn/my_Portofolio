@@ -128,7 +128,7 @@ export function Portfolio() {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 border-t border-zinc-900/80 py-20 sm:py-28"
+      className="scroll-mt-24 border-t border-zinc-900/80 py-12 sm:py-16"
     >
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <Reveal>

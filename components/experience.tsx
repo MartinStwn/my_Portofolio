@@ -67,7 +67,7 @@ const toolkit = [
 
 export function Experience() {
   return (
-    <section id="experience" className="scroll-mt-24 border-t border-zinc-900/80 py-20 sm:py-28">
+    <section id="experience" className="scroll-mt-24 border-t border-zinc-900/80 py-12 sm:py-16">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
@@ -78,12 +78,12 @@ export function Experience() {
           </h2>
         </Reveal>
 
-        <div className="relative mt-12">
+        <div className="relative mt-8">
           <span
             aria-hidden="true"
             className="absolute bottom-4 left-[7px] top-2 w-px bg-zinc-800"
           />
-          <ol className="space-y-12">
+          <ol className="space-y-8">
             {timeline.map((item, i) => (
               <Reveal as="li" key={item.title} delay={i * 100} className="relative pl-10">
                 <span
@@ -112,7 +112,7 @@ export function Experience() {
           </ol>
         </div>
 
-        <div className="mt-20 border-t border-zinc-900/80 pt-14">
+        <div className="mt-12 border-t border-zinc-900/80 pt-10">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
               Toolkit

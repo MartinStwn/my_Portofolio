@@ -30,7 +30,7 @@ const contactChannels = [
 
 export function Contact() {
   return (
-    <section id="contact" className="scroll-mt-24 border-t border-zinc-900/80 py-20 sm:py-28">
+    <section id="contact" className="scroll-mt-24 border-t border-zinc-900/80 py-12 sm:py-16">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>

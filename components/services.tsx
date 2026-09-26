@@ -44,7 +44,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="scroll-mt-24 border-t border-zinc-900/80 py-20 sm:py-28"
+      className="scroll-mt-24 border-t border-zinc-900/80 py-12 sm:py-16"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <Reveal>
@@ -59,7 +59,7 @@ export function Services() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <Reveal key={service.title} delay={i * 60}>
               <article className="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-950 p-6 transition-all hover:-translate-y-1 hover:border-orange-500/40">

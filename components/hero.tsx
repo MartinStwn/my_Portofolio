@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen scroll-mt-24 flex-col items-center justify-center overflow-hidden pb-20 pt-32 sm:pt-40"
+      className="relative flex min-h-screen scroll-mt-24 flex-col items-center justify-center overflow-hidden pb-14 pt-28 sm:pt-32"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-24 h-[560px] w-[720px] -translate-x-1/2 rounded-[50%] bg-orange-500/15 blur-[160px] animate-pulse" />
@@ -71,7 +71,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={480}>
-          <div className="mt-16 w-full">
+          <div className="mt-12 w-full">
             <p className="text-xs uppercase tracking-[0.3em] text-zinc-500">Experience With</p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
               {techStack.map((tech) => (
