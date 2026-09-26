@@ -113,7 +113,7 @@ export function Portfolio() {
       id="projects"
       className="scroll-mt-24 border-t border-zinc-900/80 py-20 sm:py-28"
     >
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
             Portfolio
@@ -145,17 +145,17 @@ export function Portfolio() {
           ))}
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
           {visible.map((project, i) => (
             <Reveal key={project.title} delay={i * 60}>
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 transition-all hover:-translate-y-1.5 hover:border-orange-500/50 hover:shadow-[0_24px_60px_-20px_rgba(249,115,22,0.25)]">
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 transition-all hover:-translate-y-1 hover:border-orange-500/50 hover:shadow-[0_18px_40px_-16px_rgba(249,115,22,0.25)]">
                 {/* Glare yang bergeser saat hover */}
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(115deg,transparent_30%,rgba(255,255,255,0.06)_45%,transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 />
 
-                <div className="relative aspect-[16/10] overflow-hidden border-b border-zinc-800 bg-black">
+                <div className="relative aspect-[16/9] overflow-hidden border-b border-zinc-800 bg-black">
                   <Image
                     src={project.image}
                     alt={project.alt}
@@ -165,26 +165,26 @@ export function Portfolio() {
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/30 to-transparent" />
-                  <div className="absolute left-4 top-4">
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-500/30 bg-black/60 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-orange-400 backdrop-blur-sm">
+                  <div className="absolute left-3 top-3">
+                    <span className="inline-flex items-center gap-1 rounded-full border border-orange-500/30 bg-black/60 px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-orange-400 backdrop-blur-sm">
                       <span className="size-1.5 rounded-full bg-orange-500" />
                       {project.category}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-lg font-semibold text-white transition-colors group-hover:text-orange-400">
+                <div className="flex flex-1 flex-col p-4">
+                  <h3 className="text-[15px] font-semibold leading-snug text-white transition-colors group-hover:text-orange-400">
                     {project.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  <p className="mt-1.5 line-clamp-3 text-xs leading-relaxed text-zinc-400">
                     {project.description}
                   </p>
-                  <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
+                  <div className="mt-auto flex flex-wrap gap-1 pt-3">
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-md bg-zinc-900 px-2.5 py-1 text-[11px] font-medium text-zinc-300 ring-1 ring-zinc-800 transition-colors group-hover:ring-orange-500/30"
+                        className="rounded bg-zinc-900 px-1.5 py-0.5 text-[10px] font-medium text-zinc-300 ring-1 ring-zinc-800 transition-colors group-hover:ring-orange-500/30"
                       >
                         {tech}
                       </span>
