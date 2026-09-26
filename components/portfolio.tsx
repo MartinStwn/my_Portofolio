@@ -175,7 +175,7 @@ export function Portfolio() {
                 <button
                   type="button"
                   onClick={() => setPreview(project)}
-                  aria-label={`Perbesar: ${project.title}`}
+                  aria-label={`Zoom: ${project.title}`}
                   className="relative block aspect-[16/9] w-full cursor-zoom-in overflow-hidden border-b border-zinc-800 bg-black"
                 >
                   <Image
@@ -195,7 +195,7 @@ export function Portfolio() {
                   </div>
                   <span className="absolute bottom-2.5 right-2.5 inline-flex items-center gap-1 rounded-md bg-black/70 px-2 py-1 text-[10px] font-semibold text-zinc-300 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                     <Maximize2 className="size-3" />
-                    Perbesar
+                    Zoom
                   </span>
                 </button>
 
@@ -250,7 +250,7 @@ export function Portfolio() {
           <button
             type="button"
             onClick={() => setPreview(null)}
-            aria-label="Tutup pratinjau"
+            aria-label="Close preview"
             className="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 text-zinc-300 transition-colors hover:border-orange-500 hover:text-orange-400"
           >
             <X className="size-5" />
