@@ -1,3 +1,4 @@
+import { Activity, Code2, Server, ShieldCheck, Terminal, Workflow } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 
 type TimelineItem = {
@@ -34,26 +35,32 @@ const timeline: TimelineItem[] = [
 const toolkit = [
   {
     group: 'Security Operations',
+    icon: ShieldCheck,
     tools: ['Kaspersky Endpoint Security', 'EDR', 'HSM / PKI', 'Incident Response', 'SIEM'],
   },
   {
     group: 'Monitoring & Observability',
+    icon: Activity,
     tools: ['Zabbix', 'Grafana', 'Uptime Kuma', 'SNMP', 'Alerting'],
   },
   {
     group: 'Automation',
+    icon: Workflow,
     tools: ['n8n', 'Webhooks', 'API Integration', 'Chatbot', 'Workflow Design'],
   },
   {
     group: 'Infrastructure',
+    icon: Server,
     tools: ['Linux / Ubuntu Server', 'Postfix', 'Dovecot', 'Roundcube', 'PostgreSQL'],
   },
   {
     group: 'Offensive & Scripting',
+    icon: Terminal,
     tools: ['Kali Linux', 'Nmap', 'Wireshark', 'Python', 'Bash'],
   },
   {
     group: 'Platform & Web',
+    icon: Code2,
     tools: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'Git'],
   },
 ]
@@ -122,22 +129,40 @@ export function Experience() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {toolkit.map((category, i) => (
               <Reveal key={category.group} delay={i * 60}>
-                <div className="h-full rounded-xl border border-zinc-800 bg-zinc-950/60 p-5 transition-colors hover:border-orange-500/40">
-                  <h4 className="flex items-center gap-2 text-sm font-semibold text-white">
-                    <span className="size-1.5 rounded-full bg-orange-500" />
+                <article className="group relative h-full overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/50 hover:shadow-[0_20px_50px_-18px_rgba(249,115,22,0.3)]">
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-10 -top-10 size-28 rounded-full bg-orange-500/0 blur-2xl transition-colors duration-500 group-hover:bg-orange-500/25"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  />
+
+                  <div className="relative flex items-start justify-between gap-3">
+                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-orange-500/20 bg-gradient-to-br from-orange-500/20 to-orange-700/5 text-orange-400 transition-all duration-300 group-hover:scale-110 group-hover:border-orange-500/50 group-hover:text-orange-300">
+                      <category.icon className="size-5" />
+                    </span>
+                    <span className="shrink-0 rounded-full bg-zinc-900/80 px-2 py-0.5 text-[10px] font-semibold text-zinc-500 ring-1 ring-zinc-800">
+                      {category.tools.length} tools
+                    </span>
+                  </div>
+
+                  <h4 className="relative mt-4 text-sm font-semibold text-white transition-colors duration-300 group-hover:text-orange-400">
                     {category.group}
                   </h4>
-                  <div className="mt-3.5 flex flex-wrap gap-1.5">
+
+                  <div className="relative mt-3.5 flex flex-wrap gap-1.5">
                     {category.tools.map((tool) => (
                       <span
                         key={tool}
-                        className="rounded-md bg-zinc-900 px-2 py-1 text-[11px] font-medium text-zinc-300 ring-1 ring-zinc-800"
+                        className="rounded-md border border-transparent bg-zinc-900/80 px-2 py-1 text-[11px] font-medium text-zinc-300 transition-all duration-200 hover:border-orange-500/40 hover:bg-orange-500/10 hover:text-orange-300"
                       >
                         {tool}
                       </span>
                     ))}
                   </div>
-                </div>
+                </article>
               </Reveal>
             ))}
           </div>
