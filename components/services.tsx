@@ -15,10 +15,14 @@ function si(glyph: { path: string }) {
   }
 }
 
+function brand(icon: { hex: string }) {
+  return icon.hex.startsWith('#') ? icon.hex : `#${icon.hex}`
+}
+
 const services = [
   {
     icon: si(siKaspersky),
-    color: siKaspersky.hex,
+    color: brand(siKaspersky),
     title: 'Endpoint & IT Security',
     description:
       'Deployment, testing, and policy enforcement for endpoint protection (Kaspersky) and security hardening of end-user devices.',
@@ -32,28 +36,28 @@ const services = [
   },
   {
     icon: si(siDovecot),
-    color: siDovecot.hex,
+    color: brand(siDovecot),
     title: 'Mail Server Deployment',
     description:
       'Building organizational mail servers with Postfix, Dovecot, and Roundcube — secure authentication and reliable delivery.',
   },
   {
     icon: si(siGrafana),
-    color: siGrafana.hex,
+    color: brand(siGrafana),
     title: 'Infrastructure Monitoring',
     description:
       'NOC monitoring stacks with Zabbix, Grafana, and Uptime Kuma: availability, metrics, alerting, and status pages.',
   },
   {
     icon: si(siN8n),
-    color: siN8n.hex,
+    color: brand(siN8n),
     title: 'Automation & Chatbots',
     description:
       'Workflow automation with n8n: integrations, notifications, and internal service chatbots to reduce manual work.',
   },
   {
     icon: si(siRoundcube),
-    color: siRoundcube.hex,
+    color: brand(siRoundcube),
     title: 'Secure Communication',
     description:
       'Configuring and securing communication channels and mail flow — relay setup, TLS, and sender validation.',
