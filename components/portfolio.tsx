@@ -17,7 +17,7 @@ type Project = {
   link?: { label: string; href: string }
 }
 
-const projects = [
+const projects: Project[] = [
   {
     category: 'IT SECURITY / KASPERSKY',
     title: 'Kaspersky Endpoint Security Testing',

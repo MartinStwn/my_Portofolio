@@ -1,5 +1,53 @@
 import { Activity, Code2, Server, ShieldCheck, Terminal, Workflow } from 'lucide-react'
+import {
+  siDovecot,
+  siFedora,
+  siGnubash,
+  siGrafana,
+  siNextdotjs,
+  siN8n,
+  siPostgresql,
+  siPython,
+  siReact,
+  siTailwindcss,
+  siTypescript,
+  siUptimekuma,
+  siWireshark,
+} from 'simple-icons'
+import type { ReactNode } from 'react'
+import { NmapIcon, PostfixIcon, ZabbixIcon } from '@/components/brand-icons'
 import { Reveal } from '@/components/reveal'
+
+type GlyphProps = { className?: string }
+
+function si(glyph: { path: string }) {
+  return function Glyph({ className }: GlyphProps) {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+        <path d={glyph.path} />
+      </svg>
+    )
+  }
+}
+
+const toolGlyphs: Record<string, (props: GlyphProps) => ReactNode> = {
+  Zabbix: ZabbixIcon,
+  Postfix: PostfixIcon,
+  Nmap: NmapIcon,
+  Grafana: si(siGrafana),
+  'Uptime Kuma': si(siUptimekuma),
+  n8n: si(siN8n),
+  'Fedora Linux': si(siFedora),
+  Dovecot: si(siDovecot),
+  Python: si(siPython),
+  Bash: si(siGnubash),
+  Wireshark: si(siWireshark),
+  PostgreSQL: si(siPostgresql),
+  TypeScript: si(siTypescript),
+  React: si(siReact),
+  'Tailwind CSS': si(siTailwindcss),
+  'Next.js': si(siNextdotjs),
+}
 
 type TimelineItem = {
   title: string
@@ -36,32 +84,74 @@ const toolkit = [
   {
     group: 'Security Operations',
     icon: ShieldCheck,
-    tools: ['Kaspersky Endpoint Security', 'EDR', 'HSM / PKI', 'Incident Response', 'SIEM'],
+    color: '#006D5C',
+    tools: [
+      { name: 'Kaspersky', color: '#006D5C' },
+      { name: 'EDR', color: '#006D5C' },
+      { name: 'HSM / PKI', color: '#006D5C' },
+      { name: 'Incident Response', color: '#006D5C' },
+      { name: 'SIEM', color: '#006D5C' },
+    ],
   },
   {
     group: 'Monitoring & Observability',
     icon: Activity,
-    tools: ['Zabbix', 'Grafana', 'Uptime Kuma', 'SNMP', 'Alerting'],
+    color: '#D40000',
+    tools: [
+      { name: 'Zabbix', color: '#D40000' },
+      { name: 'Grafana', color: '#F46800' },
+      { name: 'Uptime Kuma', color: '#5CDD8B' },
+      { name: 'SNMP', color: '#F46800' },
+      { name: 'Alerting', color: '#D40000' },
+    ],
   },
   {
     group: 'Automation',
     icon: Workflow,
-    tools: ['n8n', 'Webhooks', 'API Integration', 'Chatbot', 'Workflow Design'],
+    color: '#EA4B71',
+    tools: [
+      { name: 'n8n', color: '#EA4B71' },
+      { name: 'Webhooks', color: '#EA4B71' },
+      { name: 'API Integration', color: '#EA4B71' },
+      { name: 'Chatbot', color: '#EA4B71' },
+      { name: 'Workflow Design', color: '#EA4B71' },
+    ],
   },
   {
     group: 'Infrastructure',
     icon: Server,
-    tools: ['Linux / Ubuntu Server', 'Postfix', 'Dovecot', 'Roundcube', 'PostgreSQL'],
+    color: '#54BCAB',
+    tools: [
+      { name: 'Fedora Linux', color: '#51A2DA' },
+      { name: 'Postfix', color: '#54BCAB' },
+      { name: 'Dovecot', color: '#54BCAB' },
+      { name: 'Roundcube', color: '#37BEFF' },
+      { name: 'PostgreSQL', color: '#4169E1' },
+    ],
   },
   {
     group: 'Offensive & Scripting',
     icon: Terminal,
-    tools: ['Fedora Linux', 'Nmap', 'Wireshark', 'Python', 'Bash'],
+    color: '#1679A7',
+    tools: [
+      { name: 'Nmap', color: '#1679A7' },
+      { name: 'Wireshark', color: '#1679A7' },
+      { name: 'Python', color: '#3776AB' },
+      { name: 'Bash', color: '#4EAA25' },
+      { name: 'VMware', color: '#607078' },
+    ],
   },
   {
     group: 'Platform & Web',
     icon: Code2,
-    tools: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'Git'],
+    color: '#61DAFB',
+    tools: [
+      { name: 'Next.js', color: '#9CC9F5' },
+      { name: 'TypeScript', color: '#3178C6' },
+      { name: 'React', color: '#61DAFB' },
+      { name: 'Tailwind CSS', color: '#06B6D4' },
+      { name: 'Git', color: '#F05032' },
+    ],
   },
 ]
 
@@ -160,14 +250,23 @@ export function Experience() {
                     </h4>
 
                     <div className="relative mt-4 flex flex-wrap gap-1.5">
-                      {category.tools.map((tool) => (
-                        <span
-                          key={tool}
-                          className="rounded-lg border border-zinc-800/80 bg-zinc-900/60 px-2.5 py-1 text-[11px] font-medium text-zinc-400 transition-all duration-200 hover:-translate-y-0.5 hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-orange-300"
-                        >
-                          {tool}
-                        </span>
-                      ))}
+                      {category.tools.map((tool) => {
+                        const Glyph = toolGlyphs[tool.name]
+                        return (
+                          <span
+                            key={tool.name}
+                            className="inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-[11px] font-medium transition-all duration-200 hover:-translate-y-0.5"
+                            style={{
+                              color: tool.color,
+                              borderColor: `${tool.color}33`,
+                              backgroundColor: `${tool.color}12`,
+                            }}
+                          >
+                            {Glyph ? <Glyph className="size-3.5 shrink-0" /> : null}
+                            {tool.name}
+                          </span>
+                        )
+                      })}
                     </div>
                   </article>
                 </div>
