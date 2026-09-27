@@ -59,17 +59,17 @@ export function Services() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <Reveal key={service.title} delay={i * 60}>
-              <article className="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-950 p-6 transition-all hover:-translate-y-1 hover:border-orange-500/40">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-500 ring-1 ring-orange-500/20 transition-colors group-hover:bg-orange-500 group-hover:text-black">
-                  <service.icon className="size-6" />
+              <article className="group flex h-full flex-col rounded-xl border border-zinc-800 bg-zinc-950 p-4 transition-all hover:-translate-y-1 hover:border-orange-500/40">
+                <div className="flex size-10 items-center justify-center rounded-lg bg-orange-500/10 text-orange-500 ring-1 ring-orange-500/20 transition-colors group-hover:bg-orange-500 group-hover:text-black">
+                  <service.icon className="size-5" />
                 </div>
-                <h3 className="mt-5 text-base font-semibold text-white">
+                <h3 className="mt-3.5 text-sm font-semibold text-white">
                   {service.title}
                 </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-400">
+                <p className="mt-1.5 flex-1 text-xs leading-relaxed text-zinc-400">
                   {service.description}
                 </p>
               </article>
