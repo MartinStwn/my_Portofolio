@@ -30,6 +30,26 @@ export function NmapIcon({ className }: IconProps) {
   )
 }
 
+export function HsmIcon({ className }: IconProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      role="img"
+      aria-label="Hardware Security Module"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="5" y="5" width="14" height="14" rx="2.5" />
+      <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
+      <path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M19 5l-2 2M5 19l2-2M19 19l-2-2" />
+    </svg>
+  )
+}
+
 export function PostfixIcon({ className }: IconProps) {
   return (
     <svg
