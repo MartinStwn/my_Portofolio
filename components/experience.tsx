@@ -129,40 +129,54 @@ export function Experience() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {toolkit.map((category, i) => (
               <Reveal key={category.group} delay={i * 60}>
-                <article className="group relative h-full overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/50 hover:shadow-[0_20px_50px_-18px_rgba(249,115,22,0.3)]">
+                <div className="group relative h-full rounded-2xl">
                   <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -right-10 -top-10 size-28 rounded-full bg-orange-500/0 blur-2xl transition-colors duration-500 group-hover:bg-orange-500/25"
+                    className="pointer-events-none absolute -inset-px animate-[spin_4s_linear_infinite] rounded-2xl bg-[conic-gradient(from_0deg,transparent_0deg,transparent_250deg,rgb(249_115_22/0.85)_320deg,transparent_360deg)] opacity-0 blur-[2px] transition-opacity duration-500 group-hover:opacity-100"
                   />
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  />
-
-                  <div className="relative flex items-start justify-between gap-3">
-                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border border-orange-500/20 bg-gradient-to-br from-orange-500/20 to-orange-700/5 text-orange-400 transition-all duration-300 group-hover:scale-110 group-hover:border-orange-500/50 group-hover:text-orange-300">
-                      <category.icon className="size-5" />
+                  <article className="relative h-full overflow-hidden rounded-2xl border border-zinc-800/80 bg-gradient-to-b from-zinc-900/70 to-zinc-950/80 p-5 backdrop-blur-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-zinc-700/60">
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -bottom-4 right-3 select-none text-[68px] font-bold leading-none text-white/[0.04] transition-colors duration-500 group-hover:text-orange-500/10"
+                    >
+                      {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span className="shrink-0 rounded-full bg-zinc-900/80 px-2 py-0.5 text-[10px] font-semibold text-zinc-500 ring-1 ring-zinc-800">
-                      {category.tools.length} tools
-                    </span>
-                  </div>
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -left-12 -top-12 size-32 rounded-full bg-orange-500/0 blur-2xl transition-colors duration-500 group-hover:bg-orange-500/20"
+                    />
 
-                  <h4 className="relative mt-4 text-sm font-semibold text-white transition-colors duration-300 group-hover:text-orange-400">
-                    {category.group}
-                  </h4>
-
-                  <div className="relative mt-3.5 flex flex-wrap gap-1.5">
-                    {category.tools.map((tool) => (
-                      <span
-                        key={tool}
-                        className="rounded-md border border-transparent bg-zinc-900/80 px-2 py-1 text-[11px] font-medium text-zinc-300 transition-all duration-200 hover:border-orange-500/40 hover:bg-orange-500/10 hover:text-orange-300"
-                      >
-                        {tool}
+                    <div className="relative flex items-start justify-between gap-3">
+                      <span className="relative inline-flex size-12 shrink-0 items-center justify-center">
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-0 rounded-2xl bg-orange-500/20 opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-100"
+                        />
+                        <span className="relative inline-flex size-11 items-center justify-center rounded-xl border border-orange-500/25 bg-gradient-to-br from-orange-500/25 via-orange-600/10 to-transparent text-orange-400 transition-all duration-300 group-hover:scale-110 group-hover:text-orange-300">
+                          <category.icon className="size-5" />
+                        </span>
                       </span>
-                    ))}
-                  </div>
-                </article>
+                      <span className="shrink-0 rounded-full border border-zinc-800 bg-zinc-900/70 px-2.5 py-1 text-[10px] font-semibold text-zinc-400 backdrop-blur-sm">
+                        {category.tools.length} tools
+                      </span>
+                    </div>
+
+                    <h4 className="relative mt-5 bg-gradient-to-r from-white to-zinc-300 bg-clip-text text-base font-semibold text-transparent transition-all duration-300 group-hover:from-white group-hover:to-orange-400">
+                      {category.group}
+                    </h4>
+
+                    <div className="relative mt-4 flex flex-wrap gap-1.5">
+                      {category.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="rounded-lg border border-zinc-800/80 bg-zinc-900/60 px-2.5 py-1 text-[11px] font-medium text-zinc-400 transition-all duration-200 hover:-translate-y-0.5 hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-orange-300"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </article>
+                </div>
               </Reveal>
             ))}
           </div>
