@@ -135,12 +135,6 @@ export function Experience() {
                     className="pointer-events-none absolute -inset-px animate-[spin_4s_linear_infinite] rounded-2xl bg-[conic-gradient(from_0deg,transparent_0deg,transparent_250deg,rgb(249_115_22/0.85)_320deg,transparent_360deg)] opacity-0 blur-[2px] transition-opacity duration-500 group-hover:opacity-100"
                   />
                   <article className="relative h-full overflow-hidden rounded-2xl border border-zinc-800/80 bg-gradient-to-b from-zinc-900/70 to-zinc-950/80 p-5 backdrop-blur-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-zinc-700/60">
-                    <span
-                      aria-hidden="true"
-                      className="pointer-events-none absolute -bottom-4 right-3 select-none text-[68px] font-bold leading-none text-white/[0.04] transition-colors duration-500 group-hover:text-orange-500/10"
-                    >
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
                     <div
                       aria-hidden="true"
                       className="pointer-events-none absolute -left-12 -top-12 size-32 rounded-full bg-orange-500/0 blur-2xl transition-colors duration-500 group-hover:bg-orange-500/20"
