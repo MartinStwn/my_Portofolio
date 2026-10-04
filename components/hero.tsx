@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
 import {
   siDovecot,
@@ -39,13 +38,6 @@ function hexOf(icon: { hex: string }) {
   return icon.hex.startsWith('#') ? icon.hex : `#${icon.hex}`
 }
 
-const stats = [
-  { value: 8, suffix: '', label: 'Projects Delivered' },
-  { value: 6, suffix: '', label: 'Service Areas' },
-  { value: 30, suffix: '+', label: 'Tools & Platforms' },
-  { value: 4, suffix: '', label: 'Discipline Areas' },
-]
-
 const marqueeLogos: { name: string; color: string; Glyph: (props: GlyphProps) => ReactNode }[] = [
   { name: 'Zabbix', color: '#D40000', Glyph: ZabbixIcon },
   { name: 'Grafana', color: hexOf(siGrafana), Glyph: si(siGrafana) },
@@ -65,40 +57,6 @@ const marqueeLogos: { name: string; color: string; Glyph: (props: GlyphProps) =>
   { name: 'React', color: hexOf(siReact), Glyph: si(siReact) },
   { name: 'Tailwind', color: hexOf(siTailwindcss), Glyph: si(siTailwindcss) },
 ]
-
-function Counter({ to }: { to: number }) {
-  const [value, setValue] = useState(0)
-  const ref = useRef<HTMLSpanElement>(null)
-  const done = useRef(false)
-
-  useEffect(() => {
-    const node = ref.current
-    if (!node) return
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) {
-      setValue(to)
-      return
-    }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0].isIntersecting || done.current) return
-        done.current = true
-        const start = performance.now()
-        const tick = (now: number) => {
-          const progress = Math.min((now - start) / 1100, 1)
-          setValue(Math.round(to * (1 - Math.pow(1 - progress, 3))))
-          if (progress < 1) requestAnimationFrame(tick)
-        }
-        requestAnimationFrame(tick)
-      },
-      { threshold: 0.4 },
-    )
-    observer.observe(node)
-    return () => observer.disconnect()
-  }, [to])
-
-  return <span ref={ref}>{value}</span>
-}
 
 export function Hero() {
   return (
@@ -161,33 +119,17 @@ export function Hero() {
               </div>
             </Reveal>
 
-            <Reveal delay={340}>
-              <dl className="mt-12 grid max-w-lg grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-4 lg:mx-0">
-                {stats.map((stat) => (
-                  <div key={stat.label} className="text-center lg:text-left">
-                    <dt className="sr-only">{stat.label}</dt>
-                    <dd className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-                      <Counter to={stat.value} />
-                      <span className="text-orange-500">{stat.suffix}</span>
-                    </dd>
-                    <p className="mt-1 text-[11px] leading-tight text-zinc-500">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
           </div>
 
           <div className="order-1 lg:order-2">
             <Reveal delay={140}>
-              <div className="relative mx-auto w-full max-w-sm">
+              <div className="relative mx-auto w-full max-w-[210px] sm:max-w-[240px]">
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-orange-500/25 via-transparent to-orange-600/10 blur-2xl"
+                  className="absolute -inset-2 rounded-[1.6rem] bg-gradient-to-br from-orange-500/25 via-transparent to-orange-600/10 blur-xl"
                 />
-                <div className="relative overflow-hidden rounded-3xl border border-zinc-800/80 bg-gradient-to-b from-zinc-900/80 to-zinc-950 p-2 shadow-2xl backdrop-blur-sm">
-                  <div className="relative overflow-hidden rounded-[1.4rem] bg-zinc-950">
+                <div className="relative overflow-hidden rounded-2xl border border-zinc-800/80 bg-gradient-to-b from-zinc-900/80 to-zinc-950 p-1.5 shadow-xl backdrop-blur-sm">
+                  <div className="relative overflow-hidden rounded-xl bg-zinc-950">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/profile.jpg"
@@ -195,9 +137,9 @@ export function Hero() {
                       className="aspect-[4/5] w-full object-cover object-top"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/10 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-4">
-                      <p className="text-xs font-semibold text-white">D4 Cybersecurity</p>
-                      <p className="mt-0.5 text-[11px] text-zinc-400">
+                    <div className="absolute inset-x-0 bottom-0 p-3">
+                      <p className="text-[11px] font-semibold text-white">D4 Cybersecurity</p>
+                      <p className="mt-0.5 text-[10px] leading-tight text-zinc-400">
                         Endpoint Security · NOC · Automation
                       </p>
                     </div>
@@ -208,14 +150,6 @@ export function Hero() {
                   </div>
                 </div>
 
-                <div className="absolute -bottom-4 -left-4 hidden rounded-2xl border border-zinc-800 bg-zinc-900/90 px-4 py-3 backdrop-blur-md sm:block">
-                  <p className="text-[10px] uppercase tracking-widest text-zinc-500">
-                    Focus
-                  </p>
-                  <p className="mt-1 text-xs font-semibold text-orange-400">
-                    Monitoring &amp; Hardening
-                  </p>
-                </div>
               </div>
             </Reveal>
           </div>
